@@ -42,6 +42,8 @@ public class ParkingBussines {
 	 int countCarro = 0;
 	 int countMoto = 0;
 	 static double saldo = 0.0;
+	 double saldoCarro = 0.0;
+	 double saldoMoto = 0.0;
 
 	public ParkingDTO saveParking(ParkingDTO registro) {
 
@@ -67,6 +69,7 @@ public class ParkingBussines {
 		
 		Parking anser = null;
 		ParkingDTO respuesta = null;
+		
 		if (registro.getTipoVehiculo().equals(Constantes.TIPO_CARRO)) {
 
 			if (countCarro <= 20) {
@@ -77,7 +80,8 @@ public class ParkingBussines {
 
 			} else {
 				
-				System.out.println("linea numero 96 :::::: NO PUEDE INGRESAR " + countCarro);
+				RespuestaParkingDTO respuestaParking = new RespuestaParkingDTO();
+				respuestaParking.setMensaje(Constantes.SUPERO_CANTIDAD_CARRO);
 
 			}
 
@@ -91,7 +95,8 @@ public class ParkingBussines {
 
 			} else {
 
-				System.out.println("linea numero 96 :::::: NO PUEDE INGRESAR " + countMoto);
+				RespuestaParkingDTO respuestaParking = new RespuestaParkingDTO();
+				respuestaParking.setMensaje(Constantes.SUPERO_CANTIDAD_MOTO);
 			}
 
 		}
@@ -263,8 +268,7 @@ public class ParkingBussines {
 
 	private Parking guardarSalidaVehiculo(ParkingDTO parking) {
 		
-		double saldoCarro = 0.0;
-		double saldoMoto = 0.0;
+		
 		
 		Parking entityParking = new Parking();
 		entityParking.setIdParking(parking.getIdParking());
