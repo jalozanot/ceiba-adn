@@ -1,7 +1,7 @@
 package com.parqueadero.application.utils;
 
 
-public class Constantes {
+public final class Constantes {
 	
 	public static final int PARK_FULL_CARROS = 20;
 	public static final int PARK_FULL_MOTOS = 10;
@@ -16,11 +16,6 @@ public class Constantes {
 	public static final String SUPERO_CANTIDAD_CARRO = "EL PARQUEADERO SE ENCUENTRA LLENO PARA CARRO!!!";
 	public static final String SUPERO_CANTIDAD_MOTO = "EL PARQUEADERO SE ENCUENTRA LLENO PARA MOTO!!!";
 	
-	
-	private Constantes() {
-		
-	}
-	
-	
+	private Constantes() {}
 	
 }
