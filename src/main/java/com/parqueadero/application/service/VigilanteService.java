@@ -32,7 +32,7 @@ public class VigilanteService {
     	vigilanteRepository.save(vigilante);
     }
 
-    public void deleteVigilante(long id) {
+    public void deleteVigilante(Long id) {
     	vigilanteRepository.deleteById(id);
     }
     
