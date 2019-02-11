@@ -108,7 +108,7 @@ public class ParkingBussines {
 		entityParking.setNumPlaca(parking.getNumPlaca());
 		entityParking.setCilindrajeVehiculo(parking.getCilindrajeVehiculo());
 		entityParking.setTipoVehiculo(parking.getTipoVehiculo());
-		entityParking.setEstado("INGRESO");
+		entityParking.setEstado(Constantes.INGRESO);
 
 		if (parking.getTipoVehiculo().equals(Constantes.TIPO_CARRO)) {
 
@@ -132,7 +132,7 @@ public class ParkingBussines {
 		String diaSemana = "";
 		boolean flagPlaca;
 
-		if (letraPlaca.equals(Constantes.letra_A) || letraPlaca.equals(Constantes.letra_a)) {
+		if (letraPlaca.equals(Constantes.LETRA_A_MAYUS) || letraPlaca.equals(Constantes.LETRA_A_MINUS)) {
 
 			diaSemana = this.obtenerDia();
 
