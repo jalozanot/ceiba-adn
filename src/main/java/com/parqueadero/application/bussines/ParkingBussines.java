@@ -39,8 +39,8 @@ public class ParkingBussines {
 
 	}
 
-	 private static int countCarro = 0;
-	 static int countMoto = 0;
+	 int countCarro = 0;
+	 int countMoto = 0;
 	 static double saldo = 0.0;
 
 	public ParkingDTO saveParking(ParkingDTO registro) {
@@ -120,9 +120,9 @@ public class ParkingBussines {
 
 		}
 
-		Parking park = servicioPa.saveOrUpdateParking(entityParking);
+		return servicioPa.saveOrUpdateParking(entityParking);
 
-		return park;
+		 
 	}
 
 	private boolean validarPlaca(String placa) {
