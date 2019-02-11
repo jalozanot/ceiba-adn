@@ -73,7 +73,6 @@ public class ParkingBussines {
 
 				countCarro++;
 				anser = this.guardarParking(registro);
-				System.out.println("linea numero 74 :::::: " + anser.getIdParking());
 				respuesta = this.convertirEntityToDTO(anser);
 
 			} else {
@@ -127,8 +126,6 @@ public class ParkingBussines {
 		}
 
 		Parking park = servicioPa.saveOrUpdateParking(entityParking);
-
-		System.out.println("linea numero 126 :::::: " + park.getIdParking());
 
 		return park;
 	}
