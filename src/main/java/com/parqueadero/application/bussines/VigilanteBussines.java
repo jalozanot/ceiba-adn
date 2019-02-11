@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.parqueadero.application.entity.Vigilante;
 import com.parqueadero.application.service.VigilanteService;
+import com.parqueadero.application.utils.Constantes;
 
 @Service
 public class VigilanteBussines {
@@ -15,7 +16,7 @@ public class VigilanteBussines {
 	VigilanteService serviceVigilante;
 
 	public String ping() {
-		return "ping para vehiculoController";
+		return Constantes.MENSAJE_PING;
 	}
 
 	public List<Vigilante> getAllVigilante() {
