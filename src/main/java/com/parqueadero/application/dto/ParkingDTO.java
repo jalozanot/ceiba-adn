@@ -5,78 +5,79 @@ import java.util.Date;
 
 public class ParkingDTO {
 	
-	private Long idParking;
-	private Date fechaIngreso;
-	private Date fechaSalida;
-	private Double tarifa;
-	private Long idVigilante;
-	private String numPlaca;	
-	private String cilindrajeVehiculo;	
-	private String tipoVehiculo;
-	private int puesto;
-	private String estado;
+	private Long idParkingDTO;
+	private Date fechaIngresoDTO;
+	private Date fechaSalidaDTO;
+	private Double tarifaDTO;
+	private Long idVigilanteDTO;
+	private String numPlacaDTO;	
+	private String cilindrajeVehiculoDTO;	
+	private String tipoVehiculoDTO;
+	private int puestoDTO;
+	private String estadoDTO;
 	
-	public Long getIdParking() {
-		return idParking;
+	public Long getIdParkingDTO() {
+		return idParkingDTO;
 	}
-	public void setIdParking(Long idParking) {
-		this.idParking = idParking;
+	public void setIdParkingDTO(Long idParkingDTO) {
+		this.idParkingDTO = idParkingDTO;
 	}
-	public Date getFechaIngreso() {
-		return fechaIngreso;
+	public Date getFechaIngresoDTO() {
+		return fechaIngresoDTO;
 	}
-	public void setFechaIngreso(Date fechaIngreso) {
-		this.fechaIngreso = fechaIngreso;
+	public void setFechaIngresoDTO(Date fechaIngresoDTO) {
+		this.fechaIngresoDTO = fechaIngresoDTO;
 	}
-	public Date getFechaSalida() {
-		return fechaSalida;
+	public Date getFechaSalidaDTO() {
+		return fechaSalidaDTO;
 	}
-	public void setFechaSalida(Date fechaSalida) {
-		this.fechaSalida = fechaSalida;
+	public void setFechaSalidaDTO(Date fechaSalidaDTO) {
+		this.fechaSalidaDTO = fechaSalidaDTO;
 	}
-	public Double getTarifa() {
-		return tarifa;
+	public Double getTarifaDTO() {
+		return tarifaDTO;
 	}
-	public void setTarifa(Double tarifa) {
-		this.tarifa = tarifa;
+	public void setTarifaDTO(Double tarifaDTO) {
+		this.tarifaDTO = tarifaDTO;
 	}
-
-	public Long getIdVigilante() {
-		return idVigilante;
+	public Long getIdVigilanteDTO() {
+		return idVigilanteDTO;
 	}
-	public void setIdVigilante(Long idVigilante) {
-		this.idVigilante = idVigilante;
+	public void setIdVigilanteDTO(Long idVigilanteDTO) {
+		this.idVigilanteDTO = idVigilanteDTO;
 	}
-	public String getNumPlaca() {
-		return numPlaca;
+	public String getNumPlacaDTO() {
+		return numPlacaDTO;
 	}
-	public void setNumPlaca(String numPlaca) {
-		this.numPlaca = numPlaca;
+	public void setNumPlacaDTO(String numPlacaDTO) {
+		this.numPlacaDTO = numPlacaDTO;
 	}
-	public String getCilindrajeVehiculo() {
-		return cilindrajeVehiculo;
+	public String getCilindrajeVehiculoDTO() {
+		return cilindrajeVehiculoDTO;
 	}
-	public void setCilindrajeVehiculo(String cilindrajeVehiculo) {
-		this.cilindrajeVehiculo = cilindrajeVehiculo;
+	public void setCilindrajeVehiculoDTO(String cilindrajeVehiculoDTO) {
+		this.cilindrajeVehiculoDTO = cilindrajeVehiculoDTO;
 	}
-	public String getTipoVehiculo() {
-		return tipoVehiculo;
+	public String getTipoVehiculoDTO() {
+		return tipoVehiculoDTO;
 	}
-	public void setTipoVehiculo(String tipoVehiculo) {
-		this.tipoVehiculo = tipoVehiculo;
+	public void setTipoVehiculoDTO(String tipoVehiculoDTO) {
+		this.tipoVehiculoDTO = tipoVehiculoDTO;
 	}
-	public int getPuesto() {
-		return puesto;
+	public int getPuestoDTO() {
+		return puestoDTO;
 	}
-	public void setPuesto(int puesto) {
-		this.puesto = puesto;
+	public void setPuestoDTO(int puestoDTO) {
+		this.puestoDTO = puestoDTO;
 	}
-	public String getEstado() {
-		return estado;
+	public String getEstadoDTO() {
+		return estadoDTO;
 	}
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setEstadoDTO(String estadoDTO) {
+		this.estadoDTO = estadoDTO;
 	}
+	
+	
 	
 	
 	
