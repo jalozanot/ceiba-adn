@@ -50,7 +50,7 @@ public class ParkingBussines {
 
 		ParkingDTO answer = null;
 
-		if (!validarPlaca(registro.getNumPlaca())) {
+		if (!validarPlaca(registro.getNumPlacaDTO())) {
 
 			RespuestaParkingDTO respuestaParking = new RespuestaParkingDTO();
 			respuestaParking.setMensaje(Constantes.MENSAJE_PLACA);
@@ -71,7 +71,7 @@ public class ParkingBussines {
 		Parking anser = null;
 		ParkingDTO respuesta = null;
 		
-		if (registro.getTipoVehiculo().equals(Constantes.TIPO_CARRO)) {
+		if (registro.getTipoVehiculoDTO().equals(Constantes.TIPO_CARRO)) {
 
 			if (countCarro <= 20) {
 
@@ -86,7 +86,7 @@ public class ParkingBussines {
 
 			}
 
-		} else if (registro.getTipoVehiculo().equals(Constantes.TIPO_MOTO)) {
+		} else if (registro.getTipoVehiculoDTO().equals(Constantes.TIPO_MOTO)) {
 
 			if (countMoto <= 10) {
 
@@ -108,19 +108,19 @@ public class ParkingBussines {
 	private Parking guardarParking(ParkingDTO parking) {
 
 		Parking entityParking = new Parking();
-		entityParking.setIdParking(parking.getIdParking());
-		entityParking.setIdVigilante(parking.getIdVigilante());
+		entityParking.setIdParking(parking.getIdParkingDTO());
+		entityParking.setIdVigilante(parking.getIdVigilanteDTO());
 		entityParking.setFechaIngreso(new Date());
-		entityParking.setNumPlaca(parking.getNumPlaca());
-		entityParking.setCilindrajeVehiculo(parking.getCilindrajeVehiculo());
-		entityParking.setTipoVehiculo(parking.getTipoVehiculo());
+		entityParking.setNumPlaca(parking.getNumPlacaDTO());
+		entityParking.setCilindrajeVehiculo(parking.getCilindrajeVehiculoDTO());
+		entityParking.setTipoVehiculo(parking.getTipoVehiculoDTO());
 		entityParking.setEstado(Constantes.INGRESO);
 
-		if (parking.getTipoVehiculo().equals(Constantes.TIPO_CARRO)) {
+		if (parking.getTipoVehiculoDTO().equals(Constantes.TIPO_CARRO)) {
 
 			entityParking.setPuesto(countCarro);
 
-		} else if (parking.getTipoVehiculo().equals(Constantes.TIPO_MOTO)) {
+		} else if (parking.getTipoVehiculoDTO().equals(Constantes.TIPO_MOTO)) {
 
 			entityParking.setPuesto(countMoto);
 
@@ -207,16 +207,16 @@ public class ParkingBussines {
 	private ParkingDTO convertirEntityToDTO(Parking parking) {
 
 		ParkingDTO convertDTO = new ParkingDTO();
-		convertDTO.setIdParking(parking.getIdParking());
-		convertDTO.setFechaIngreso(parking.getFechaIngreso());
-		convertDTO.setFechaSalida(parking.getFechaSalida());
-		convertDTO.setIdVigilante(parking.getIdVigilante());
-		convertDTO.setNumPlaca(parking.getNumPlaca());
-		convertDTO.setPuesto(parking.getPuesto());
-		convertDTO.setTarifa(parking.getTarifa());
-		convertDTO.setTipoVehiculo(parking.getTipoVehiculo());
-		convertDTO.setCilindrajeVehiculo(parking.getCilindrajeVehiculo());
-		convertDTO.setEstado(parking.getEstado());
+		convertDTO.setIdParkingDTO(parking.getIdParking());
+		convertDTO.setFechaIngresoDTO(parking.getFechaIngreso());
+		convertDTO.setFechaSalidaDTO(parking.getFechaSalida());
+		convertDTO.setIdVigilanteDTO(parking.getIdVigilante());
+		convertDTO.setNumPlacaDTO(parking.getNumPlaca());
+		convertDTO.setPuestoDTO(parking.getPuesto());
+		convertDTO.setTarifaDTO(parking.getTarifa());
+		convertDTO.setTipoVehiculoDTO(parking.getTipoVehiculo());
+		convertDTO.setCilindrajeVehiculoDTO(parking.getCilindrajeVehiculo());
+		convertDTO.setEstadoDTO(parking.getEstado());
 
 		return convertDTO;
 
@@ -273,26 +273,26 @@ public class ParkingBussines {
 		
 		
 		Parking entityParking = new Parking();
-		entityParking.setIdParking(parking.getIdParking());
-		entityParking.setIdVigilante(parking.getIdVigilante());
-		entityParking.setTarifa(parking.getTarifa());
-		entityParking.setFechaIngreso(parking.getFechaIngreso());
+		entityParking.setIdParking(parking.getIdParkingDTO());
+		entityParking.setIdVigilante(parking.getIdVigilanteDTO());
+		entityParking.setTarifa(parking.getTarifaDTO());
+		entityParking.setFechaIngreso(parking.getFechaIngresoDTO());
 		entityParking.setFechaSalida(new Date());
-		entityParking.setNumPlaca(parking.getNumPlaca());
-		entityParking.setCilindrajeVehiculo(parking.getCilindrajeVehiculo());
-		entityParking.setTipoVehiculo(parking.getTipoVehiculo());
+		entityParking.setNumPlaca(parking.getNumPlacaDTO());
+		entityParking.setCilindrajeVehiculo(parking.getCilindrajeVehiculoDTO());
+		entityParking.setTipoVehiculo(parking.getTipoVehiculoDTO());
 		entityParking.setEstado("SALIDA");
 
-		if (parking.getTipoVehiculo().equals(Constantes.TIPO_CARRO)) {
+		if (parking.getTipoVehiculoDTO().equals(Constantes.TIPO_CARRO)) {
 			countCarro --;
 			entityParking.setPuesto(countCarro);
-		    saldoCarro = this.validarFechaSalidaCarro(entityParking.getFechaSalida().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),parking.getFechaIngreso().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
+		    saldoCarro = this.validarFechaSalidaCarro(entityParking.getFechaSalida().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),parking.getFechaIngresoDTO().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
 		    entityParking.setTarifa(saldoCarro);
 		    
-		} else if (parking.getTipoVehiculo().equals(Constantes.TIPO_MOTO)) {
+		} else if (parking.getTipoVehiculoDTO().equals(Constantes.TIPO_MOTO)) {
 			countMoto --;
 			entityParking.setPuesto(countMoto);
-			saldoMoto = this.validarFechaSalidaMoto(entityParking.getFechaSalida().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),parking.getFechaIngreso().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
+			saldoMoto = this.validarFechaSalidaMoto(entityParking.getFechaSalida().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),parking.getFechaIngresoDTO().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
 			entityParking.setTarifa(saldoMoto);
 		}
 
