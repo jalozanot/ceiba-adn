@@ -164,7 +164,6 @@ public class ParkingBussines {
 		c.setTime(fechaActual);
 		String diaSemana = "";
 		
-		Constantes constantes = new Constantes();
 		
 		dia = c.get(Calendar.DAY_OF_WEEK);
 
@@ -263,7 +262,10 @@ public class ParkingBussines {
 	}
 
 	private Parking guardarSalidaVehiculo(ParkingDTO parking) {
-
+		
+		double saldoCarro = 0.0;
+		double saldoMoto = 0.0;
+		
 		Parking entityParking = new Parking();
 		entityParking.setIdParking(parking.getIdParking());
 		entityParking.setIdVigilante(parking.getIdVigilante());
@@ -278,12 +280,14 @@ public class ParkingBussines {
 		if (parking.getTipoVehiculo().equals(Constantes.TIPO_CARRO)) {
 			countCarro --;
 			entityParking.setPuesto(countCarro);
-			double saldo = this.validarFechaSalidaCarro(entityParking.getFechaSalida().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),parking.getFechaIngreso().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
+		    saldoCarro = this.validarFechaSalidaCarro(entityParking.getFechaSalida().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),parking.getFechaIngreso().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
+		    entityParking.setTarifa(saldoCarro);
+		    
 		} else if (parking.getTipoVehiculo().equals(Constantes.TIPO_MOTO)) {
 			countMoto --;
 			entityParking.setPuesto(countMoto);
-			double saldo = this.validarFechaSalidaMoto(entityParking.getFechaSalida().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),parking.getFechaIngreso().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
-			entityParking.setTarifa(saldo);
+			saldoMoto = this.validarFechaSalidaMoto(entityParking.getFechaSalida().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),parking.getFechaIngreso().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
+			entityParking.setTarifa(saldoMoto);
 		}
 
 		Parking park = servicioPa.saveOrUpdateParking(entityParking);
