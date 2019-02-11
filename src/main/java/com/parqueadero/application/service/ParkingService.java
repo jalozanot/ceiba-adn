@@ -29,8 +29,8 @@ public class ParkingService {
     }
 
     public Parking saveOrUpdateParking(Parking parking) {
-    	Parking park = parkingRepository.save(parking);
-    	return park;
+    	return parkingRepository.save(parking);
+    	
     }
 
     public void deleteParking(Long id) {
