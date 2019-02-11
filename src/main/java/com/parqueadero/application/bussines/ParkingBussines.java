@@ -64,7 +64,7 @@ public class ParkingBussines {
 
 	private ParkingDTO validarPuestoVehiculo(ParkingDTO registro) {
 
-		boolean flagPuesto;
+		
 		Parking anser = null;
 		ParkingDTO respuesta = null;
 		if (registro.getTipoVehiculo().equals(Constantes.TIPO_CARRO)) {
@@ -76,8 +76,7 @@ public class ParkingBussines {
 				respuesta = this.convertirEntityToDTO(anser);
 
 			} else {
-				// TODO
-				// mensaje parking full
+				
 				System.out.println("linea numero 96 :::::: NO PUEDE INGRESAR " + countCarro);
 
 			}
@@ -88,13 +87,10 @@ public class ParkingBussines {
 
 				countMoto++;
 				anser = this.guardarParking(registro);
-				System.out.println("linea numero 89 :::::: " + anser.getIdParking());
 				respuesta = this.convertirEntityToDTO(anser);
 
 			} else {
 
-				// TODO
-				// mensaje parking full
 				System.out.println("linea numero 96 :::::: NO PUEDE INGRESAR " + countMoto);
 			}
 
