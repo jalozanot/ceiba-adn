@@ -48,17 +48,15 @@ public class ParkingController {
 	@PostMapping("/ingreso")
 	public ParkingDTO saveVehiculo(@RequestBody ParkingDTO registro) {
 		
-		ParkingDTO answerDTO = parkingBussines.saveParking(registro);
+		return parkingBussines.saveParking(registro);
 		
-		return answerDTO;
 	}
 	
 	@PostMapping("/salida")
 	public ParkingDTO salidaVehiculo(@RequestBody ParkingDTO registro) {
 		
-		ParkingDTO answerDTO = parkingBussines.salidaVehiculo(registro);
+		return parkingBussines.salidaVehiculo(registro);
 		
-		return answerDTO;
 	}
 
 }
