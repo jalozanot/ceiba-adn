@@ -19,7 +19,7 @@ public class ParkingService {
     ParkingRepository parkingRepository;
 
     public List<Parking> getAllParking() {
-        List<Parking> parks = new ArrayList<Parking>();
+        List<Parking> parks = new ArrayList<>();
         parkingRepository.findAll().forEach(parking -> parks.add(parking));
         return parks;
     }
