@@ -14,6 +14,7 @@ import com.parqueadero.application.dto.ParkingDTO;
 import com.parqueadero.application.dto.RespuestaParkingDTO;
 import com.parqueadero.application.entity.Parking;
 import com.parqueadero.application.service.ParkingService;
+import com.parqueadero.application.utils.ConstanteEnun;
 import com.parqueadero.application.utils.Constantes;
 
 @Service
@@ -136,13 +137,14 @@ public class ParkingBussines {
 		letraPlaca = placa.substring(0, 1);
 		String diaSemana = "";
 		boolean flagPlaca;
-
+		
+		
 		if (letraPlaca.equals(Constantes.LETRA_A_MAYUS) || letraPlaca.equals(Constantes.LETRA_A_MINUS)) {
 
 			diaSemana = this.obtenerDia();
 
-			if (diaSemana.equals(Constantes.diasSemana.LUNES.toString())
-					|| diaSemana.equals(Constantes.diasSemana.DOMINGO.toString())) {
+			if (diaSemana.equals(ConstanteEnun.LUNES.toString())
+					|| diaSemana.equals(ConstanteEnun.DOMINGO.toString())) {
 				flagPlaca = false;
 				
 			} else {
@@ -174,28 +176,28 @@ public class ParkingBussines {
 
 		switch (dia) {
 		case 1:
-			diaSemana = Constantes.diasSemana.DOMINGO.toString();
+			diaSemana = ConstanteEnun.DOMINGO.toString();
 			break;
 		case 2:
-			diaSemana = Constantes.diasSemana.LUNES.toString();
+			diaSemana = ConstanteEnun.LUNES.toString();
 			break;
 		case 3:
-			diaSemana = Constantes.diasSemana.MARTES.toString();
+			diaSemana = ConstanteEnun.MARTES.toString();
 			break;
 		case 4:
-			diaSemana = Constantes.diasSemana.MIERCOLES.toString();
+			diaSemana = ConstanteEnun.MIERCOLES.toString();
 			break;
 		case 5:
-			diaSemana = Constantes.diasSemana.JUEVES.toString();
+			diaSemana = ConstanteEnun.JUEVES.toString();
 			break;
 		case 6:
-			diaSemana = Constantes.diasSemana.VIERNES.toString();
+			diaSemana = ConstanteEnun.VIERNES.toString();
 			break;
 		case 7:
-			diaSemana = Constantes.diasSemana.SABADO.toString();
+			diaSemana = ConstanteEnun.SABADO.toString();
 			break;
 		default:
-			diaSemana = Constantes.diasSemana.DOMINGO.toString();
+			diaSemana = ConstanteEnun.DOMINGO.toString();
 			break;
 		}
 
