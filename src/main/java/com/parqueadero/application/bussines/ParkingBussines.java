@@ -24,7 +24,7 @@ public class ParkingBussines {
 	ParkingService servicioPa;
 
 	public String ping() {
-		return "retorno de informacion de parking";
+		return Constantes.MENSAJE_PING;
 	}
 
 	public List<Parking> getAllParking() {
