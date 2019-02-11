@@ -13,6 +13,8 @@ public class Constantes {
 	public static final String LETRA_A_MINUS = "a";
 	public static final String SALIDA = "SALIDA";
 	public static final String INGRESO = "INGRESO";
+	public static final String SUPERO_CANTIDAD_CARRO = "EL PARQUEADERO SE ENCUENTRA LLENO PARA CARRO!!!";
+	public static final String SUPERO_CANTIDAD_MOTO = "EL PARQUEADERO SE ENCUENTRA LLENO PARA MOTO!!!";
 	
 	public static enum diasSemana {
 	 LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
