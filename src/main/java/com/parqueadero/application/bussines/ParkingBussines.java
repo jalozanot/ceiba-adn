@@ -10,7 +10,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.parqueadero.application.dto.GuardarRegistroDTO;
 import com.parqueadero.application.dto.ParkingDTO;
 import com.parqueadero.application.dto.RespuestaParkingDTO;
 import com.parqueadero.application.entity.Parking;
@@ -44,11 +43,11 @@ public class ParkingBussines {
 	 static int countMoto = 0;
 	 static double saldo = 0.0;
 
-	public ParkingDTO saveParking(GuardarRegistroDTO registro) {
+	public ParkingDTO saveParking(ParkingDTO registro) {
 
 		ParkingDTO answer = null;
 
-		if (!validarPlaca(registro.parking.getNumPlaca())) {
+		if (!validarPlaca(registro.getNumPlaca())) {
 
 			RespuestaParkingDTO respuestaParking = new RespuestaParkingDTO();
 			respuestaParking.setMensaje(Constantes.MENSAJE_PLACA);
@@ -63,17 +62,17 @@ public class ParkingBussines {
 
 	}
 
-	private ParkingDTO validarPuestoVehiculo(GuardarRegistroDTO registro) {
+	private ParkingDTO validarPuestoVehiculo(ParkingDTO registro) {
 
 		boolean flagPuesto;
 		Parking anser = null;
 		ParkingDTO respuesta = null;
-		if (registro.parking.getTipoVehiculo().equals(Constantes.TIPO_CARRO)) {
+		if (registro.getTipoVehiculo().equals(Constantes.TIPO_CARRO)) {
 
 			if (countCarro <= 20) {
 
 				countCarro++;
-				anser = this.guardarParking(registro.parking);
+				anser = this.guardarParking(registro);
 				System.out.println("linea numero 74 :::::: " + anser.getIdParking());
 				respuesta = this.convertirEntityToDTO(anser);
 
@@ -84,12 +83,12 @@ public class ParkingBussines {
 
 			}
 
-		} else if (registro.parking.getTipoVehiculo().equals(Constantes.TIPO_MOTO)) {
+		} else if (registro.getTipoVehiculo().equals(Constantes.TIPO_MOTO)) {
 
 			if (countMoto <= 10) {
 
 				countMoto++;
-				anser = this.guardarParking(registro.parking);
+				anser = this.guardarParking(registro);
 				System.out.println("linea numero 89 :::::: " + anser.getIdParking());
 				respuesta = this.convertirEntityToDTO(anser);
 
@@ -224,9 +223,9 @@ public class ParkingBussines {
 
 	}
 
-	public ParkingDTO salidaVehiculo(GuardarRegistroDTO registro) {
+	public ParkingDTO salidaVehiculo(ParkingDTO registro) {
 
-		Parking respuesta =  guardarSalidaVehiculo(registro.parking);
+		Parking respuesta =  guardarSalidaVehiculo(registro);
 
 		ParkingDTO tarifa = this.convertirEntityToDTO(respuesta);
 		

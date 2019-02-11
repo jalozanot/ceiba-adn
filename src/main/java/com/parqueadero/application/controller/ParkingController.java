@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.parqueadero.application.bussines.ParkingBussines;
-import com.parqueadero.application.dto.GuardarRegistroDTO;
 import com.parqueadero.application.dto.ParkingDTO;
 import com.parqueadero.application.entity.Parking;
 
@@ -48,7 +46,7 @@ public class ParkingController {
 	}
 
 	@PostMapping("/ingreso")
-	public ParkingDTO saveVehiculo(@RequestBody GuardarRegistroDTO registro) {
+	public ParkingDTO saveVehiculo(@RequestBody ParkingDTO registro) {
 		
 		ParkingDTO answerDTO = parkingBussines.saveParking(registro);
 		
@@ -56,7 +54,7 @@ public class ParkingController {
 	}
 	
 	@PostMapping("/salida")
-	public ParkingDTO salidaVehiculo(@RequestBody GuardarRegistroDTO registro) {
+	public ParkingDTO salidaVehiculo(@RequestBody ParkingDTO registro) {
 		
 		ParkingDTO answerDTO = parkingBussines.salidaVehiculo(registro);
 		
