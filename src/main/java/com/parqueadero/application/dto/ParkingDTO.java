@@ -2,7 +2,6 @@ package com.parqueadero.application.dto;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 
 public class ParkingDTO {
 	
