@@ -41,7 +41,7 @@ public class ParkingBussines {
 
 	 int countCarro = 0;
 	 int countMoto = 0;
-	 static double saldo = 0.0;
+	 double saldo = 0.0;
 	 double saldoCarro = 0.0;
 	 double saldoMoto = 0.0;
 
@@ -228,7 +228,7 @@ public class ParkingBussines {
 		
 	}
 
-	public static double validarFechaSalidaCarro(LocalDateTime fechaSalida, LocalDateTime fechaEntrada) {
+	public double validarFechaSalidaCarro(LocalDateTime fechaSalida, LocalDateTime fechaEntrada) {
 		long horas = ChronoUnit.HOURS.between(fechaSalida, fechaEntrada);
 		if (horas <= 0) {
 			horas = ChronoUnit.SECONDS.between(fechaEntrada, fechaSalida) > 0 ? 
@@ -247,7 +247,7 @@ public class ParkingBussines {
 		return saldo;
 	}
 
-	public static double validarFechaSalidaMoto(LocalDateTime fechaSalida, LocalDateTime fechaIngreso) {
+	public double validarFechaSalidaMoto(LocalDateTime fechaSalida, LocalDateTime fechaIngreso) {
 		long horas = ChronoUnit.HOURS.between(fechaSalida, fechaIngreso);
 		if (horas <= 0) {
 			horas = ChronoUnit.SECONDS.between(fechaIngreso, fechaSalida) > 0 ? 
@@ -294,9 +294,8 @@ public class ParkingBussines {
 			entityParking.setTarifa(saldoMoto);
 		}
 
-		Parking park = servicioPa.saveOrUpdateParking(entityParking);
+		return servicioPa.saveOrUpdateParking(entityParking);
 
-		return park;
 	}
 
 }
