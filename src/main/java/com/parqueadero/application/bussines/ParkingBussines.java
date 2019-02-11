@@ -163,7 +163,9 @@ public class ParkingBussines {
 		Date fechaActual = new Date();
 		c.setTime(fechaActual);
 		String diaSemana = "";
-
+		
+		Constantes constantes = new Constantes();
+		
 		dia = c.get(Calendar.DAY_OF_WEEK);
 
 		switch (dia) {
@@ -218,9 +220,8 @@ public class ParkingBussines {
 
 		Parking respuesta =  guardarSalidaVehiculo(registro);
 
-		ParkingDTO tarifa = this.convertirEntityToDTO(respuesta);
+		return  this.convertirEntityToDTO(respuesta);
 		
-		return tarifa;
 	}
 
 	public static double validarFechaSalidaCarro(LocalDateTime fechaSalida, LocalDateTime fechaEntrada) {
@@ -283,7 +284,6 @@ public class ParkingBussines {
 			entityParking.setPuesto(countMoto);
 			double saldo = this.validarFechaSalidaMoto(entityParking.getFechaSalida().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),parking.getFechaIngreso().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
 			entityParking.setTarifa(saldo);
-			System.out.println("linea numero 284 :::::: " + saldo);
 		}
 
 		Parking park = servicioPa.saveOrUpdateParking(entityParking);
