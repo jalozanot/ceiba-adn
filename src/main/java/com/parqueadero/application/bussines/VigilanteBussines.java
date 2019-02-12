@@ -27,9 +27,9 @@ public class VigilanteBussines {
 		return serviceVigilante.getVigilanteById(id);
 	}
 
-	public Long saveVigilante(Vigilante vigilante) {
-		serviceVigilante.saveOrUpdateVigilante(vigilante);
-		return vigilante.getIdVigilante();
+	public Vigilante saveVigilante(Vigilante vigilante) {
+		return serviceVigilante.saveOrUpdateVigilante(vigilante);
+		
 	}
 	
 	public void deleteVigilante(Long id) {
