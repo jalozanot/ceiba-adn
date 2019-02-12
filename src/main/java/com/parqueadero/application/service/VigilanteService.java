@@ -19,9 +19,9 @@ public class VigilanteService {
     VigilanteRepository vigilanteRepository;
 
     public List<Vigilante> getAllVigilante() {
-        List<Vigilante> vigilantes = new ArrayList<>();
-        vigilanteRepository.findAll().forEach(vigil -> vigilantes.add(vigil));
-        return vigilantes;
+        
+        return (List<Vigilante>)vigilanteRepository.findAll();
+    
     }
 
     public Vigilante getVigilanteById(Long id) {
