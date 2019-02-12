@@ -19,9 +19,10 @@ public class ParkingService {
     ParkingRepository parkingRepository;
 
     public List<Parking> getAllParking() {
-        List<Parking> parks = new ArrayList<>();
-        parkingRepository.findAll().forEach(parking -> parks.add(parking));
-        return parks;
+       // List<Parking> parks = new ArrayList<>();
+        //parkingRepository.findAll().forEach(parking -> parks.add(parking));
+        return (List<Parking>) parkingRepository.findAll();
+        //return parks;
     }
 
     public Parking getParkingById(Long id) {
