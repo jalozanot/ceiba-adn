@@ -24,7 +24,7 @@ public class Application extends SpringBootServletInitializer{
 	
 	@Bean
 	public CommandLineRunner inicial (VigilanteRepository repository) {
-		return (args) -> {
+		return args -> {
 			Vigilante vigilante = new Vigilante();
 			vigilante.setIdVigilante(Long.parseLong("1"));
 			vigilante.setApellido("Rolando");
