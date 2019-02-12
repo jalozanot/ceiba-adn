@@ -25,8 +25,8 @@ public class VigilanteService {
         return vigilanteRepository.findById(id).get();
     }
 
-    public void saveOrUpdateVigilante(Vigilante vigilante) {
-    	vigilanteRepository.save(vigilante);
+    public Vigilante saveOrUpdateVigilante(Vigilante vigilante) {
+    	return vigilanteRepository.save(vigilante);
     }
 
     public void deleteVigilante(Long id) {
