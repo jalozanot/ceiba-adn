@@ -113,5 +113,13 @@ public class ParkingBussinesMockTest {
 		
 	}
 	
+	@Test
+	public void saveSalidaCarro()  {
+		
+		when(service.saveOrUpdateParking(Mockito.anyObject())).thenReturn(parkingEntityCarro);
+		ParkingDTO salidaCarro = bussines.salidaVehiculo(parkingCarro);
+		Assert.assertTrue(Objects.nonNull(salidaCarro));
+		
+	}
 	
 }
