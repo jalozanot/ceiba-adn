@@ -238,6 +238,10 @@ public class ParkingBussines {
 			horas = ChronoUnit.SECONDS.between(fechaEntrada, fechaSalida) > 0 ? 
 					1: 0;
 		}
+		if (horas <= 0) {
+			horas = ChronoUnit.SECONDS.between(fechaEntrada, fechaSalida) > 0 ? 
+					1: 0;
+		}
 		if (horas > 0 && horas <= 9) {
 			long calculoHoras = 1000L * horas;
 			saldo = saldo + calculoHoras;
