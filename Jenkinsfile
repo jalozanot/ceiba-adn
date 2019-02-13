@@ -1,5 +1,5 @@
 pipeline {
-	//where and how to execute the Pipeline
+
 	agent {
 		label 'Slave_Induccion'
 	}
