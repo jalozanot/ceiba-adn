@@ -14,7 +14,7 @@ stages {
 stage('Checkout'){
 steps{
 echo "------------>Checkout<------------"
-checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GitHub_jalozanot', url: 'https://github.com/jalozanot/ceiba-adn.git']]])
+checkout([$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GitHub_jalozanot', url: 'https://github.com/jalozanot/ceiba-adn.git']]])
 }
 }
 stage('Unit Tests') {
