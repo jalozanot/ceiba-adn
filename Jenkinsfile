@@ -4,7 +4,7 @@ pipeline {
 	}
 	
 	options {
-		buildDiscarder(logRotator(numToKeepStr: '5')) 
+		buildDiscarder(logRotator(numToKeepStr: '3')) 
 		disableConcurrentBuilds() 
 	}
 	
@@ -51,7 +51,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "------------>Build<------------"
-				sh 'gradle build -x test'
+				sh 'gradle --b ./build.gradle build -x test'
 			}
 		}
 	}
