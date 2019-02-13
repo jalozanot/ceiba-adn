@@ -23,10 +23,10 @@ public class ParkingControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void shouldReturnDefaultMessage() throws Exception {
+    public void validarPing() throws Exception {
         this.mockMvc.perform(get("/parking/ping")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("retorno de informacion de parking")));
     }
-	
+    
 	
 }
