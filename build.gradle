@@ -20,6 +20,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: "org.sonarqube"
 apply plugin: 'war'
+apply plugin: 'jacoco'
 
 group = 'com.parqueadero.application'
 version = '0.0.1-SNAPSHOT'
@@ -41,20 +42,4 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
-	testImplementation 'junit:junit:4.12'
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile 'junit:junit:4.12'
-	
-}
-
-task listJars << {
-	configurations.compile.each { File file -> println file.name }
-}
-
-test {
-	jacoco {
-		append = false
-		destinationFile = file("build/jacoco/test.exec")
-	}
-	reports.junitXml.destination =  file("build/jacoco/test-results")
 }

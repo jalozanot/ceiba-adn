@@ -1,13 +1,15 @@
 pipeline {
+	//where and how to execute the Pipeline
 	agent {
 		label 'Slave_Induccion'
 	}
 	
 	options {
-		buildDiscarder(logRotator(numToKeepStr: '3')) 
+		buildDiscarder(logRotator(numToKeepStr: '5')) 
 		disableConcurrentBuilds() 
 	}
 	
+	//A section defining tools to auto-install and put on the PATH
 	tools {
 		jdk 'JDK8_Centos'
 		gradle 'Gradle4.5_Centos'
@@ -23,6 +25,12 @@ pipeline {
 			}
 		}
 		
+		stage('Compile') {
+			steps{
+				echo "------------>Unit Tests<------------"
+				sh 'gradle --b ./build.gradle compileJava'
+			}
+		}
 		
 		stage('Unit Tests') {
 			steps{
@@ -37,7 +45,7 @@ pipeline {
 			steps{
 				echo '------------>Analisis de codigo estatico<------------'
 				withSonarQubeEnv('Sonar') {
-					sh "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties"
+					sh "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
 				}
 			}
 		}
@@ -45,7 +53,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "------------>Build<------------"
-				sh 'gradle --b ./build.gradle build -x test'
+				sh 'gradle build -x test'
 			}
 		}
 	}
