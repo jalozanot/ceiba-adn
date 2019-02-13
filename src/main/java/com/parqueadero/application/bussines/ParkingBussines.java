@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.parqueadero.application.dto.ParkingDTO;
 import com.parqueadero.application.dto.RespuestaParkingDTO;
@@ -18,6 +19,7 @@ import com.parqueadero.application.utils.ConstanteEnun;
 import com.parqueadero.application.utils.Constantes;
 
 @Service
+@Transactional
 public class ParkingBussines {
 
 	@Autowired
@@ -296,6 +298,14 @@ public class ParkingBussines {
 
 		return servicioPa.saveOrUpdateParking(entityParking);
 
+	}
+	
+	
+	
+	public Parking saveVigilante(Parking parking) {
+		
+		return servicioPa.saveOrUpdateParking(parking);
+		
 	}
 
 }
