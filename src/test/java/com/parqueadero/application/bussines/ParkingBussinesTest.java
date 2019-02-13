@@ -1,5 +1,6 @@
 package com.parqueadero.application.bussines;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -128,6 +129,26 @@ public class ParkingBussinesTest {
 		
 		boolean flag = parkingBussines.validarPlaca(ConstantesTest.NUM_PLACA_A);
 		Assert.assertTrue(flag);
+		
+	}
+	
+	@Test
+	public void salidaVehiculo() {
+		
+		ParkingDTO parqueo = new ParkingDTO();
+		parqueo.setIdParkingDTO(Long.parseLong(ConstantesTest.ID_PARKING));
+		parqueo.setNumPlacaDTO(ConstantesTest.NUM_PLACA);
+		parqueo.setIdVigilanteDTO(Long.parseLong(ConstantesTest.ID_VIGILANTE));
+		parqueo.setFechaIngresoDTO(new Date(10000));
+		parqueo.setFechaSalidaDTO(new Date(2000000));
+		parqueo.setCilindrajeVehiculoDTO(ConstantesTest.CILINDRAJE_VEHICULO);
+		parqueo.setTipoVehiculoDTO(ConstantesTest.TIPO_VEHICULO_MOTO);
+		parqueo.setPuestoDTO(Integer.parseInt(ConstantesTest.PUESTO));
+		parqueo.setEstadoDTO(ConstantesTest.ESTADO_SALIDA);
+		
+		Parking respuesta = parkingBussines.guardarSalidaVehiculo(parqueo);
+		
+		Assert.assertTrue(Objects.nonNull(respuesta));
 		
 	}
 	
