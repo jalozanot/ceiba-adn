@@ -30,7 +30,7 @@ public class VigilanteService {
     }
 
     public void deleteVigilante(Long id) {
-    	vigilanteRepository.deleteById(id);
+    	 vigilanteRepository.deleteById(id);
     }
     
 }

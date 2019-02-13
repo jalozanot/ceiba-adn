@@ -17,39 +17,40 @@ import com.parqueadero.application.entity.Vigilante;
 @SpringBootTest
 public class VigilanteBussinesTest {
 	
-//	@Autowired
-//	VigilanteBussines vigilanteBussines;
-//	
-//	
-//
-//	@Test
-//	public void obtenerAllVigilante() {
-//		
-//		List<Vigilante> respuesta = vigilanteBussines.getAllVigilante();
-//		Assert.assertTrue(Objects.nonNull(respuesta));
-//		
-//	}
-//	
-//	
-//	@Test
-//	public void obtenerByIdVigilante() {
-//		
-//		Vigilante answer = vigilanteBussines.getVigilanteId(Long.parseLong(ConstantesTest.ID_VIGILANTE));
-//		Assert.assertTrue(Objects.nonNull(answer));
-//	
-//	}
-//	
-//	@Test
-//	public void guardarVigilante() {
-//		
-//		Vigilante vigilante = new Vigilante();
-//		vigilante.setIdVigilante(Long.parseLong("1"));
-//		vigilante.setApellido("Rolando");
-//		vigilante.setNombre("Pedrosqui");
-//		vigilante.setCedula("1091657");
-//		Vigilante answer = vigilanteBussines.saveVigilante(vigilante);
-//		Assert.assertTrue(Objects.nonNull(answer));
-//	}
+	@Autowired
+	VigilanteBussines vigilanteBussines;
+	
+	
+
+	@Test
+	public void obtenerAllVigilante() {
+		
+		List<Vigilante> respuesta = vigilanteBussines.getAllVigilante();
+		Assert.assertTrue(Objects.nonNull(respuesta));
+		
+	}
+	
+	
+	@Test
+	public void obtenerByIdVigilante() {
+		
+		Vigilante answer = vigilanteBussines.getVigilanteId(Long.parseLong(ConstantesTest.ID_VIGILANTE));
+		Assert.assertTrue(Objects.nonNull(answer));
+	
+	}
+	
+	@Test
+	public void guardarVigilante() {
+		
+		Vigilante vigilante = new Vigilante();
+		vigilante.setIdVigilante(Long.parseLong(ConstantesTest.ID_VIGILANTE));
+		vigilante.setNombre(ConstantesTest.NOMBRE_VIGILANTE);
+		vigilante.setApellido(ConstantesTest.APELLIDO_VIGILANTE);
+		vigilante.setCedula(ConstantesTest.CEDULA_VIGILANTE);
+		Vigilante answer = vigilanteBussines.saveVigilante(vigilante);
+		Assert.assertTrue(Objects.nonNull(answer));
+	
+	}
 	
 	
 }
