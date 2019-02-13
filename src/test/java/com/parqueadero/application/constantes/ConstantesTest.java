@@ -13,6 +13,7 @@ public final class ConstantesTest {
 	public static final String ID_PARKING_CARRO = "20";
 	public static final String TARIFA = "500";
 	public static final String NUM_PLACA = "XCF133";
+	public static final String NUM_PLACA_A = "ACF133";
 	public static final String TIPO_VEHICULO_MOTO = "MOTO";
 	public static final String TIPO_VEHICULO_CARRO = "CARRO";
 	public static final String PUESTO = "1";

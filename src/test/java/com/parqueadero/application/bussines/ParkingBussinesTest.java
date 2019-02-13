@@ -91,4 +91,45 @@ public class ParkingBussinesTest {
 		
 	}
 	
+	@Test
+	public void validarPing() {
+		
+		Assert.assertTrue(Objects.nonNull(parkingBussines.ping()));
+	}
+	
+	@Test
+	public void guardarParking() {
+		
+		ParkingDTO parqueo = new ParkingDTO();
+		parqueo.setIdParkingDTO(Long.parseLong(ConstantesTest.ID_PARKING));
+		parqueo.setNumPlacaDTO(ConstantesTest.NUM_PLACA);
+		parqueo.setIdVigilanteDTO(Long.parseLong(ConstantesTest.ID_VIGILANTE));
+		parqueo.setCilindrajeVehiculoDTO(ConstantesTest.CILINDRAJE_VEHICULO);
+		parqueo.setTipoVehiculoDTO(ConstantesTest.TIPO_VEHICULO_MOTO);
+		parqueo.setPuestoDTO(Integer.parseInt(ConstantesTest.PUESTO));
+		parqueo.setEstadoDTO(ConstantesTest.ESTADO_SALIDA);
+		
+		Parking parkingEntity = parkingBussines.guardarParking(parqueo);
+		
+		Assert.assertTrue(Objects.nonNull(parkingEntity));
+		
+	}
+	
+	@Test
+	public void validarPlaca() {
+		
+		boolean flag = parkingBussines.validarPlaca(ConstantesTest.NUM_PLACA);
+		Assert.assertTrue(flag);
+		
+	}
+	
+	@Test
+	public void validarPlacaIniA() {
+		
+		boolean flag = parkingBussines.validarPlaca(ConstantesTest.NUM_PLACA_A);
+		Assert.assertTrue(flag);
+		
+	}
+	
+	
 }

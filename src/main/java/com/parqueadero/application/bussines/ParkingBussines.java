@@ -116,22 +116,22 @@ public class ParkingBussines {
 		entityParking.setTipoVehiculo(parking.getTipoVehiculoDTO());
 		entityParking.setEstado(Constantes.INGRESO);
 
-//		if (parking.getTipoVehiculoDTO().equals(Constantes.TIPO_CARRO)) {
-//
-//			entityParking.setPuesto(countCarro);
-//
-//		} else if (parking.getTipoVehiculoDTO().equals(Constantes.TIPO_MOTO)) {
-//
-//			entityParking.setPuesto(countMoto);
-//
-//		}
+		if (parking.getTipoVehiculoDTO().equals(Constantes.TIPO_CARRO)) {
+
+			entityParking.setPuesto(countCarro);
+
+		} else if (parking.getTipoVehiculoDTO().equals(Constantes.TIPO_MOTO)) {
+
+			entityParking.setPuesto(countMoto);
+
+		}
 
 		return servicioPa.saveOrUpdateParking(entityParking);
 
 		 
 	}
 
-	private boolean validarPlaca(String placa) {
+	public boolean validarPlaca(String placa) {
 
 		String letraPlaca = "";
 		letraPlaca = placa.substring(0, 1);
