@@ -300,12 +300,6 @@ public class ParkingBussines {
 
 	}
 	
-	
-	
-	public Parking saveVigilante(Parking parking) {
-		
-		return servicioPa.saveOrUpdateParking(parking);
-		
-	}
+
 
 }
