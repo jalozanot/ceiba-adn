@@ -30,8 +30,6 @@ public class ParkingBussinesMockTest {
 	@Mock
 	private ParkingService service;
 	
-	
-	
 	private Parking parkingEntityMoto;
 	private Parking parkingEntityCarro;
 	private ParkingDTO parkingMoto;
@@ -52,6 +50,15 @@ public class ParkingBussinesMockTest {
 		parkingMoto.setEstado(ConstantesTest.ESTADO_INGRESO);
 		parkingEntityMoto = parkingMoto;
 		
+		Parking parkingCarro = new Parking();
+		parkingCarro.setIdParking(Long.parseLong(ConstantesTest.ID_PARKING_CARRO));
+		parkingCarro.setIdVigilante(Long.parseLong(ConstantesTest.ID_VIGILANTE));
+		parkingCarro.setNumPlaca(ConstantesTest.NUM_PLACA);
+		parkingCarro.setCilindrajeVehiculo(ConstantesTest.CILINDRAJE_VEHICULO);
+		parkingCarro.setTipoVehiculo(ConstantesTest.TIPO_VEHICULO_CARRO);
+		parkingCarro.setPuesto(Integer.parseInt(ConstantesTest.PUESTO));
+		parkingCarro.setEstado(ConstantesTest.ESTADO_INGRESO);
+		parkingEntityCarro = parkingCarro;
 	}
 	
 	@Before
@@ -62,6 +69,12 @@ public class ParkingBussinesMockTest {
 		parkingMotoDTO.setTipoVehiculoDTO(ConstantesTest.TIPO_VEHICULO_MOTO);
 		parkingMotoDTO.setCilindrajeVehiculoDTO(ConstantesTest.CILINDRAJE_VEHICULO);
 		parkingMoto = parkingMotoDTO;
+		
+		ParkingDTO parkingCarroDTO = new ParkingDTO();
+		parkingCarroDTO.setNumPlacaDTO(ConstantesTest.NUM_PLACA);
+		parkingCarroDTO.setTipoVehiculoDTO(ConstantesTest.TIPO_VEHICULO_CARRO);
+		parkingCarroDTO.setCilindrajeVehiculoDTO(ConstantesTest.CILINDRAJE_VEHICULO);
+		parkingCarro = parkingMotoDTO;
 		
 	}
 	
@@ -75,6 +88,13 @@ public class ParkingBussinesMockTest {
 		
 	}
 	
-
+	@Test
+	public void saveParkingCarro()  {
+		
+		when(service.saveOrUpdateParking(Mockito.anyObject())).thenReturn(parkingEntityCarro);
+		ParkingDTO parkCarro = bussines.saveParking(parkingCarro);
+		Assert.assertTrue(parkCarro.getIdParkingDTO().toString().equals(ConstantesTest.ID_PARKING_CARRO));
+		
+	}
 	
 }
