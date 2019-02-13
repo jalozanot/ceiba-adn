@@ -65,7 +65,7 @@ public class ParkingBussines {
 
 	}
 
-	private ParkingDTO validarPuestoVehiculo(ParkingDTO registro) {
+	public ParkingDTO validarPuestoVehiculo(ParkingDTO registro) {
 
 		
 		Parking anser = null;
@@ -105,7 +105,7 @@ public class ParkingBussines {
 		return respuesta;
 	}
 
-	private Parking guardarParking(ParkingDTO parking) {
+	public Parking guardarParking(ParkingDTO parking) {
 
 		Parking entityParking = new Parking();
 		entityParking.setIdParking(parking.getIdParkingDTO());
@@ -116,15 +116,15 @@ public class ParkingBussines {
 		entityParking.setTipoVehiculo(parking.getTipoVehiculoDTO());
 		entityParking.setEstado(Constantes.INGRESO);
 
-		if (parking.getTipoVehiculoDTO().equals(Constantes.TIPO_CARRO)) {
-
-			entityParking.setPuesto(countCarro);
-
-		} else if (parking.getTipoVehiculoDTO().equals(Constantes.TIPO_MOTO)) {
-
-			entityParking.setPuesto(countMoto);
-
-		}
+//		if (parking.getTipoVehiculoDTO().equals(Constantes.TIPO_CARRO)) {
+//
+//			entityParking.setPuesto(countCarro);
+//
+//		} else if (parking.getTipoVehiculoDTO().equals(Constantes.TIPO_MOTO)) {
+//
+//			entityParking.setPuesto(countMoto);
+//
+//		}
 
 		return servicioPa.saveOrUpdateParking(entityParking);
 
@@ -163,7 +163,7 @@ public class ParkingBussines {
 
 	}
 
-	private String obtenerDia() {
+	public String obtenerDia() {
 
 		int dia = 0;
 		Calendar c = Calendar.getInstance();
@@ -204,8 +204,8 @@ public class ParkingBussines {
 		return diaSemana;
 	}
 
-	private ParkingDTO convertirEntityToDTO(Parking parking) {
-
+	public ParkingDTO convertirEntityToDTO(Parking parking) {
+		
 		ParkingDTO convertDTO = new ParkingDTO();
 		convertDTO.setIdParkingDTO(parking.getIdParking());
 		convertDTO.setFechaIngresoDTO(parking.getFechaIngreso());
@@ -268,9 +268,7 @@ public class ParkingBussines {
 		return saldo;
 	}
 
-	private Parking guardarSalidaVehiculo(ParkingDTO parking) {
-		
-		
+	public Parking guardarSalidaVehiculo(ParkingDTO parking) {
 		
 		Parking entityParking = new Parking();
 		entityParking.setIdParking(parking.getIdParkingDTO());
