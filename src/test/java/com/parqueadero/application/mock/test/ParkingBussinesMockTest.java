@@ -2,6 +2,7 @@ package com.parqueadero.application.mock.test;
 
 import static org.mockito.Mockito.when;
 
+import java.util.Date;
 import java.util.Objects;
 
 import org.junit.Assert;
@@ -43,6 +44,8 @@ public class ParkingBussinesMockTest {
 		Parking parkingMoto = new Parking();
 		parkingMoto.setIdParking(Long.parseLong(ConstantesTest.ID_PARKING_MOTO));
 		parkingMoto.setIdVigilante(Long.parseLong(ConstantesTest.ID_VIGILANTE));
+		parkingMoto.setFechaIngreso(new Date(1000));
+		parkingMoto.setFechaSalida(new Date(100000));
 		parkingMoto.setNumPlaca(ConstantesTest.NUM_PLACA);
 		parkingMoto.setCilindrajeVehiculo(ConstantesTest.CILINDRAJE_VEHICULO);
 		parkingMoto.setTipoVehiculo(ConstantesTest.TIPO_VEHICULO_MOTO);
@@ -53,6 +56,8 @@ public class ParkingBussinesMockTest {
 		Parking parkingCarro = new Parking();
 		parkingCarro.setIdParking(Long.parseLong(ConstantesTest.ID_PARKING_CARRO));
 		parkingCarro.setIdVigilante(Long.parseLong(ConstantesTest.ID_VIGILANTE));
+		parkingCarro.setFechaIngreso(new Date(1000));
+		parkingCarro.setFechaSalida(new Date(100000));
 		parkingCarro.setNumPlaca(ConstantesTest.NUM_PLACA);
 		parkingCarro.setCilindrajeVehiculo(ConstantesTest.CILINDRAJE_VEHICULO);
 		parkingCarro.setTipoVehiculo(ConstantesTest.TIPO_VEHICULO_CARRO);
@@ -67,6 +72,8 @@ public class ParkingBussinesMockTest {
 		ParkingDTO parkingMotoDTO = new ParkingDTO();
 		parkingMotoDTO.setNumPlacaDTO(ConstantesTest.NUM_PLACA);
 		parkingMotoDTO.setTipoVehiculoDTO(ConstantesTest.TIPO_VEHICULO_MOTO);
+		parkingMotoDTO.setFechaIngresoDTO(new Date(1000));
+		parkingMotoDTO.setFechaSalidaDTO(new Date(100000));
 		parkingMotoDTO.setCilindrajeVehiculoDTO(ConstantesTest.CILINDRAJE_VEHICULO);
 		parkingMoto = parkingMotoDTO;
 		
@@ -96,5 +103,15 @@ public class ParkingBussinesMockTest {
 		Assert.assertTrue(Objects.nonNull(parkCarro));
 		
 	}
+	
+	@Test
+	public void saveSalidaMoto()  {
+		
+		when(service.saveOrUpdateParking(Mockito.anyObject())).thenReturn(parkingEntityMoto);
+		ParkingDTO salidaMoto = bussines.salidaVehiculo(parkingMoto);
+		Assert.assertTrue(Objects.nonNull(salidaMoto));
+		
+	}
+	
 	
 }
