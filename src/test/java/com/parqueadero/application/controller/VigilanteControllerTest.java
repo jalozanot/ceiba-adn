@@ -1,6 +1,7 @@
 package com.parqueadero.application.controller;
 
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -23,9 +24,25 @@ public class VigilanteControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void shouldReturnDefaultMessage() throws Exception {
+    public void validacionPing() throws Exception {
         this.mockMvc.perform(get("/Vigilante/ping")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("retorno de informacion de parking")));
     }
+    
+    @Test
+    public void listVigilante() throws Exception {
+        this.mockMvc.perform(get("/Vigilante/allVigilante")).andDo(print()).andExpect(status().isOk());
+    }
+    
+    @Test
+    public void idVigilante() throws Exception {
+        this.mockMvc.perform(get("/Vigilante/Vigilante/1")).andDo(print()).andExpect(status().isOk());
+    }
+    
+    @Test
+    public void deleteVigilante() throws Exception {
+        this.mockMvc.perform(delete("/Vigilante/deleteVigilante/1")).andDo(print()).andExpect(status().isOk());
+    }
+    
 	
 }
