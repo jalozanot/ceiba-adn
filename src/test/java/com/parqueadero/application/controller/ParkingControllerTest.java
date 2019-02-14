@@ -1,6 +1,7 @@
 package com.parqueadero.application.controller;
 
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -28,5 +29,13 @@ public class ParkingControllerTest {
                 .andExpect(content().string(containsString("retorno de informacion de parking")));
     }
     
+    @Test
+    public void listParking() throws Exception {
+        this.mockMvc.perform(get("/parking/allVechiculos")).andDo(print()).andExpect(status().isOk());
+    }
+    
+  
+    
+  
 	
 }
