@@ -49,7 +49,7 @@ public class ParkingBussinesMockTest {
 		parkingMoto.setIdParking(Long.parseLong(ConstantesVal.ID_PARKING_MOTO));
 		parkingMoto.setIdVigilante(Long.parseLong(ConstantesVal.ID_VIGILANTE));
 		parkingMoto.setFechaIngreso(new Date());
-		parkingMoto.setFechaSalida(new Date(100000));
+		parkingMoto.setFechaSalida(new Date());
 		parkingMoto.setNumPlaca(ConstantesVal.NUM_PLACA);
 		parkingMoto.setCilindrajeVehiculo(ConstantesVal.CILINDRAJE_VEHICULO);
 		parkingMoto.setTipoVehiculo(ConstantesVal.TIPO_VEHICULO_MOTO);
@@ -61,7 +61,7 @@ public class ParkingBussinesMockTest {
 		parkingCarro.setIdParking(Long.parseLong(ConstantesVal.ID_PARKING_CARRO));
 		parkingCarro.setIdVigilante(Long.parseLong(ConstantesVal.ID_VIGILANTE));
 		parkingCarro.setFechaIngreso(new Date());
-		parkingCarro.setFechaSalida(new Date(100000));
+		parkingCarro.setFechaSalida(new Date());
 		parkingCarro.setNumPlaca(ConstantesVal.NUM_PLACA);
 		parkingCarro.setCilindrajeVehiculo(ConstantesVal.CILINDRAJE_VEHICULO);
 		parkingCarro.setTipoVehiculo(ConstantesVal.TIPO_VEHICULO_CARRO);
@@ -76,15 +76,15 @@ public class ParkingBussinesMockTest {
 		ParkingDTO parkingMotoDTO = new ParkingDTO();
 		parkingMotoDTO.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
 		parkingMotoDTO.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_MOTO);
-		parkingMotoDTO.setFechaIngresoDTO(new Date(1000));
-		parkingMotoDTO.setFechaSalidaDTO(new Date(100000));
+		parkingMotoDTO.setFechaIngresoDTO(new Date());
+		parkingMotoDTO.setFechaSalidaDTO(new Date());
 		parkingMotoDTO.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
 		parkingMoto = parkingMotoDTO;
 		
 		ParkingDTO parkingCarroDTO = new ParkingDTO();
 		parkingCarroDTO.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
-		parkingCarroDTO.setFechaIngresoDTO(new Date(1000));
-		parkingCarroDTO.setFechaSalidaDTO(new Date(100000));
+		parkingCarroDTO.setFechaIngresoDTO(new Date());
+		parkingCarroDTO.setFechaSalidaDTO(new Date());
 		parkingCarroDTO.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_CARRO);
 		parkingCarroDTO.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
 		parkingCarro = parkingCarroDTO;
@@ -150,11 +150,15 @@ public class ParkingBussinesMockTest {
 		parkingMo.setEstado(ConstantesVal.ESTADO_INGRESO);
 		
 		
-		parkingMoto.setFechaIngresoDTO(salida);
-		parkingMoto.setFechaSalidaDTO(salida);
+		ParkingDTO MotoDTO = new ParkingDTO();
+		MotoDTO.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
+		MotoDTO.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_MOTO);
+		MotoDTO.setFechaIngresoDTO(salida);
+		MotoDTO.setFechaSalidaDTO(new Date());
+		MotoDTO.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
 		
 		when(service.saveOrUpdateParking(Mockito.anyObject())).thenReturn(parkingMo);
-		ParkingDTO salidaMoto = bussines.salidaVehiculo(parkingMoto);
+		ParkingDTO salidaMoto = bussines.salidaVehiculo(MotoDTO);
 		Assert.assertTrue(Objects.nonNull(salidaMoto));
 		
 	}
@@ -166,7 +170,7 @@ public class ParkingBussinesMockTest {
 		Calendar calendar = Calendar.getInstance();
 		Date ingreso = calendar.getTime();
 		calendar.setTime(ingreso);
-		calendar.add(Calendar.DAY_OF_WEEK, -2);
+		calendar.add(Calendar.DAY_OF_WEEK, 0);
 		Date salida = calendar.getTime();
 		
 		Parking parkingCa = new Parking();
