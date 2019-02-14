@@ -73,7 +73,31 @@ public class ParkingBussinesTest {
 	@Test
 	public void obtenerDia() {
 		String dia = parkingBussines.obtenerDia();
-		Assert.assertTrue(ConstantesTest.MIERCOLES.equals(dia));
+		
+		switch(dia) {
+			case ConstantesTest.LUNES:
+				Assert.assertTrue(ConstantesTest.LUNES.equals(dia));
+				break;
+			case ConstantesTest.MARTES:
+				Assert.assertTrue(ConstantesTest.MARTES.equals(dia));
+				break;
+			case ConstantesTest.MIERCOLES:
+				Assert.assertTrue(ConstantesTest.MIERCOLES.equals(dia));
+				break;
+			case ConstantesTest.JUEVES:
+				Assert.assertTrue(ConstantesTest.JUEVES.equals(dia));
+				break;
+			case ConstantesTest.VIERNES:
+				Assert.assertTrue(ConstantesTest.VIERNES.equals(dia));
+				break;
+			case ConstantesTest.SABADO:
+				Assert.assertTrue(ConstantesTest.SABADO.equals(dia));
+				break;
+			case ConstantesTest.DOMINGO:
+				Assert.assertTrue(ConstantesTest.DOMINGO.equals(dia));
+				break;	
+		}
+		
 	}
 	
 	@Test
