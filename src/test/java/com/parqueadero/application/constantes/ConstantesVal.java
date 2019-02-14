@@ -1,7 +1,7 @@
 package com.parqueadero.application.constantes;
 
 
-public final class ConstantesTest {
+public final class ConstantesVal {
 	
 	public static final String ID_VIGILANTE = "1";
 	public static final String NOMBRE_VIGILANTE = "Pedrosqui";
