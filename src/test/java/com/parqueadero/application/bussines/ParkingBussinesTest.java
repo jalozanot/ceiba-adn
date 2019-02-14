@@ -24,6 +24,18 @@ public class ParkingBussinesTest {
 	
 	@Autowired
 	ParkingBussines parkingBussines;
+
+	
+	@Test
+	public void obtenerDiaMartes() {
+		String dia = parkingBussines.obtenerDia();
+		if(ConstantesTest.MARTES.equals(dia) ) {
+			Assert.assertTrue(ConstantesTest.MARTES.equals(dia));
+		} else {
+			Assert.assertFalse(ConstantesTest.MARTES.equals(dia));
+		}		
+	}
+	
 	
 	@Test
 	public void guardarRegistroParking() {
@@ -71,35 +83,16 @@ public class ParkingBussinesTest {
 	}
 	
 	@Test
-	public void obtenerDia() {
+	public void obtenerDiaLunes() {
 		String dia = parkingBussines.obtenerDia();
-		
-		switch(dia) {
-			case ConstantesTest.LUNES:
-				Assert.assertTrue(ConstantesTest.LUNES.equals(dia));
-				break;
-			case ConstantesTest.MARTES:
-				Assert.assertTrue(ConstantesTest.MARTES.equals(dia));
-				break;
-			case ConstantesTest.MIERCOLES:
-				Assert.assertTrue(ConstantesTest.MIERCOLES.equals(dia));
-				break;
-			case ConstantesTest.JUEVES:
-				Assert.assertTrue(ConstantesTest.JUEVES.equals(dia));
-				break;
-			case ConstantesTest.VIERNES:
-				Assert.assertTrue(ConstantesTest.VIERNES.equals(dia));
-				break;
-			case ConstantesTest.SABADO:
-				Assert.assertTrue(ConstantesTest.SABADO.equals(dia));
-				break;
-			case ConstantesTest.DOMINGO:
-				Assert.assertTrue(ConstantesTest.DOMINGO.equals(dia));
-				break;	
-		}
-		
+		if(ConstantesTest.LUNES.equals(dia) ) {
+			Assert.assertTrue(ConstantesTest.LUNES.equals(dia));
+		} else {
+			Assert.assertFalse(ConstantesTest.LUNES.equals(dia));
+		}		
 	}
 	
+
 	@Test
 	public void convertirDTO() {
 		
@@ -118,11 +111,35 @@ public class ParkingBussinesTest {
 		
 	}
 	
+	
+	@Test
+	public void obtenerDiaMiercoles() {
+		String dia = parkingBussines.obtenerDia();
+		if(ConstantesTest.MIERCOLES.equals(dia) ) {
+			Assert.assertTrue(ConstantesTest.MIERCOLES.equals(dia));
+		} else {
+			Assert.assertFalse(ConstantesTest.MIERCOLES.equals(dia));
+		}		
+	}
+	
+	
 	@Test
 	public void validarPing() {
 		
 		Assert.assertTrue(Objects.nonNull(parkingBussines.ping()));
 	}
+	
+	@Test
+	public void obtenerDiaDomingo() {
+		String dia = parkingBussines.obtenerDia();
+		if(ConstantesTest.DOMINGO.equals(dia) ) {
+			Assert.assertTrue(ConstantesTest.DOMINGO.equals(dia));
+		} else {
+			Assert.assertFalse(ConstantesTest.DOMINGO.equals(dia));
+		}		
+	}
+	
+	
 	
 	@Test
 	public void guardarParking() {
@@ -142,6 +159,17 @@ public class ParkingBussinesTest {
 		
 	}
 	
+
+	@Test
+	public void obtenerDiaJueves() {
+		String dia = parkingBussines.obtenerDia();
+		if(ConstantesTest.JUEVES.equals(dia) ) {
+			Assert.assertTrue(ConstantesTest.JUEVES.equals(dia));
+		} else {
+			Assert.assertFalse(ConstantesTest.JUEVES.equals(dia));
+		}		
+	}
+	
 	@Test
 	public void validarPlaca() {
 		
@@ -150,6 +178,18 @@ public class ParkingBussinesTest {
 		
 	}
 	
+	
+	@Test
+	public void obtenerDiaViernes() {
+		String dia = parkingBussines.obtenerDia();
+		if(ConstantesTest.VIERNES.equals(dia) ) {
+			Assert.assertTrue(ConstantesTest.VIERNES.equals(dia));
+		} else {
+			Assert.assertFalse(ConstantesTest.VIERNES.equals(dia));
+		}		
+	}
+	
+	
 	@Test
 	public void validarPlacaIniA() {
 		
@@ -157,6 +197,10 @@ public class ParkingBussinesTest {
 		Assert.assertTrue(flag);
 		
 	}
+	
+	
+	
+	
 	
 	@Test
 	public void salidaVehiculo() {
@@ -178,7 +222,15 @@ public class ParkingBussinesTest {
 		
 	}
 	
-	
+	@Test
+	public void obtenerDiaSabado() {
+		String dia = parkingBussines.obtenerDia();
+		if(ConstantesTest.SABADO.equals(dia) ) {
+			Assert.assertTrue(ConstantesTest.SABADO.equals(dia));
+		} else {
+			Assert.assertFalse(ConstantesTest.SABADO.equals(dia));
+		}		
+	}
 	
 	
 }
