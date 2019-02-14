@@ -219,11 +219,11 @@ public class ParkingBussines {
 		
 	}
 
-	public double validarFechaSalidaCarro(LocalDateTime fechaSalida, LocalDateTime fechaIngreso) {
-		long horas = ChronoUnit.HOURS.between(fechaIngreso, fechaSalida);
+	public double validarFechaSalidaCarro(LocalDateTime fechaSal, LocalDateTime fechaEntrada) {
+		long horas = ChronoUnit.HOURS.between(fechaEntrada, fechaSal);
 		
 		if (horas <= 0) {
-			horas = ChronoUnit.SECONDS.between(fechaIngreso, fechaSalida) > 0 ? 
+			horas = ChronoUnit.SECONDS.between(fechaEntrada, fechaSal) > 0 ? 
 					1: 0;
 		}
 		
@@ -233,10 +233,10 @@ public class ParkingBussines {
 			return saldo;
 		}
 		
-		if(ChronoUnit.HOURS.between(fechaIngreso, fechaSalida) > 9) {
-			fechaIngreso = fechaIngreso.plusHours(24);
+		if(ChronoUnit.HOURS.between(fechaEntrada, fechaSal) > 9) {
+			fechaEntrada = fechaEntrada.plusHours(24);
 			saldo += 8000;
-			return validarFechaSalidaMoto(fechaIngreso, fechaSalida);
+			return validarFechaSalidaMoto(fechaEntrada, fechaSal);
 		}
 		
 		return saldo;
