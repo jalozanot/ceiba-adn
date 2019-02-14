@@ -44,11 +44,18 @@ public class ParkingBussinesMockTest {
 	@Before
 	public void setupEntity() {
 		
+		
+		Calendar calendar = Calendar.getInstance();
+		Date ingreso = calendar.getTime();
+		calendar.setTime(ingreso);
+		calendar.add(Calendar.DAY_OF_WEEK, -2);
+		Date salida = calendar.getTime();
+		
 		MockitoAnnotations.initMocks(this);
 		Parking parkingMoto = new Parking();
 		parkingMoto.setIdParking(Long.parseLong(ConstantesVal.ID_PARKING_MOTO));
 		parkingMoto.setIdVigilante(Long.parseLong(ConstantesVal.ID_VIGILANTE));
-		parkingMoto.setFechaIngreso(new Date());
+		parkingMoto.setFechaIngreso(salida);
 		parkingMoto.setFechaSalida(new Date());
 		parkingMoto.setNumPlaca(ConstantesVal.NUM_PLACA);
 		parkingMoto.setCilindrajeVehiculo(ConstantesVal.CILINDRAJE_VEHICULO);
@@ -60,7 +67,7 @@ public class ParkingBussinesMockTest {
 		Parking parkingCarro = new Parking();
 		parkingCarro.setIdParking(Long.parseLong(ConstantesVal.ID_PARKING_CARRO));
 		parkingCarro.setIdVigilante(Long.parseLong(ConstantesVal.ID_VIGILANTE));
-		parkingCarro.setFechaIngreso(new Date());
+		parkingCarro.setFechaIngreso(salida);
 		parkingCarro.setFechaSalida(new Date());
 		parkingCarro.setNumPlaca(ConstantesVal.NUM_PLACA);
 		parkingCarro.setCilindrajeVehiculo(ConstantesVal.CILINDRAJE_VEHICULO);
@@ -73,17 +80,24 @@ public class ParkingBussinesMockTest {
 	@Before
 	public void setupDTO() {
 		
+		Calendar calendar = Calendar.getInstance();
+		Date ingreso = calendar.getTime();
+		calendar.setTime(ingreso);
+		calendar.add(Calendar.DAY_OF_WEEK, -2);
+		Date salida = calendar.getTime();
+		
+		
 		ParkingDTO parkingMotoDTO = new ParkingDTO();
 		parkingMotoDTO.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
 		parkingMotoDTO.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_MOTO);
-		parkingMotoDTO.setFechaIngresoDTO(new Date());
+		parkingMotoDTO.setFechaIngresoDTO(salida);
 		parkingMotoDTO.setFechaSalidaDTO(new Date());
 		parkingMotoDTO.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
 		parkingMoto = parkingMotoDTO;
 		
 		ParkingDTO parkingCarroDTO = new ParkingDTO();
 		parkingCarroDTO.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
-		parkingCarroDTO.setFechaIngresoDTO(new Date());
+		parkingCarroDTO.setFechaIngresoDTO(salida);
 		parkingCarroDTO.setFechaSalidaDTO(new Date());
 		parkingCarroDTO.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_CARRO);
 		parkingCarroDTO.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
@@ -107,24 +121,6 @@ public class ParkingBussinesMockTest {
 		when(service.saveOrUpdateParking(Mockito.anyObject())).thenReturn(parkingEntityCarro);
 		ParkingDTO parkCarro = bussines.saveParking(parkingCarro);
 		Assert.assertTrue(Objects.nonNull(parkCarro));
-		
-	}
-	
-	@Test
-	public void saveSalidaMoto()  {
-		
-		when(service.saveOrUpdateParking(Mockito.anyObject())).thenReturn(parkingEntityMoto);
-		ParkingDTO salidaMoto = bussines.salidaVehiculo(parkingMoto);
-		Assert.assertTrue(Objects.nonNull(salidaMoto));
-		
-	}
-	
-	@Test
-	public void saveSalidaCarro()  {
-		
-		when(service.saveOrUpdateParking(Mockito.anyObject())).thenReturn(parkingEntityCarro);
-		ParkingDTO salidaCarro = bussines.salidaVehiculo(parkingCarro);
-		Assert.assertTrue(Objects.nonNull(salidaCarro));
 		
 	}
 	
@@ -170,7 +166,7 @@ public class ParkingBussinesMockTest {
 		Calendar calendar = Calendar.getInstance();
 		Date ingreso = calendar.getTime();
 		calendar.setTime(ingreso);
-		calendar.add(Calendar.DAY_OF_WEEK, 0);
+		calendar.add(Calendar.DAY_OF_WEEK, -1);
 		Date salida = calendar.getTime();
 		
 		Parking parkingCa = new Parking();

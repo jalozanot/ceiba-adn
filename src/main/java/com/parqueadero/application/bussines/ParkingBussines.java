@@ -232,7 +232,7 @@ public class ParkingBussines {
 		if(ChronoUnit.HOURS.between(fechaEntrada, fechaSal) > 9) {
 			fechaEntrada = fechaEntrada.plusHours(24);
 			saldo += 8000;
-			return validarFechaSalidaMoto(fechaEntrada, fechaSal); 
+			return validarFechaSalidaCarro(fechaSal , fechaEntrada ); 
 		}
 		
 		return saldo;
@@ -255,7 +255,7 @@ public class ParkingBussines {
 		if(ChronoUnit.HOURS.between(fechaIngreso, fechaSalida) > 9) {
 			fechaIngreso = fechaIngreso.plusHours(24);
 			saldo += 4000;
-			return validarFechaSalidaMoto(fechaIngreso, fechaSalida);
+			return validarFechaSalidaMoto(fechaSalida, fechaIngreso);
 		}
 		
 		return saldo;
