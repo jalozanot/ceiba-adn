@@ -58,12 +58,6 @@ public class ParkingController {
 		return parkingBussines.salidaVehiculo(registro);
 		
 	}
-	
-	@PostMapping("/prueba")
-	public String prueba(@RequestBody Long id) {
-		System.out.println("linea numeor 63:::: " + id);
-		return "prueba";
-		
-	}
+
 
 }
