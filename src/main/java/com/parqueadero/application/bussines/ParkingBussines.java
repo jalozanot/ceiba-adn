@@ -5,6 +5,7 @@ import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,7 @@ public class ParkingBussines {
 		ParkingDTO answer = null;
 
 		if (!validarPlaca(registro.getNumPlacaDTO())) {
-
+			System.out.println("linea numero 57  ::::::: ");
 			RespuestaParkingDTO respuestaParking = new RespuestaParkingDTO();
 			respuestaParking.setMensaje(Constantes.MENSAJE_PLACA);
 
@@ -171,13 +172,25 @@ public class ParkingBussines {
 		Calendar c = Calendar.getInstance();
 		Date fechaActual = new Date();
 		c.setTime(fechaActual);
-		String diaSemana = "";
-		
 		
 		dia = c.get(Calendar.DAY_OF_WEEK);
 		
-		return diaSemana = (dia == 1) ? ConstanteEnun.DOMINGO.toString(): (dia == 2) ? ConstanteEnun.LUNES.toString() : (dia == 3) ? ConstanteEnun.MARTES.toString() : (dia == 4)? ConstanteEnun.MIERCOLES.toString(): (dia == 5)?ConstanteEnun.JUEVES.toString():(dia == 6)?diaSemana = ConstanteEnun.VIERNES.toString():(dia == 7)?ConstanteEnun.SABADO.toString():ConstanteEnun.DOMINGO.toString();
+		return diaSemana(dia);
 
+	}
+	
+	public String diaSemana(Integer numeroDia) {
+		
+		HashMap<Integer, String> lstDia = new HashMap<>();
+		lstDia.put(Integer.parseInt("1"), ConstanteEnun.DOMINGO.toString());
+		lstDia.put(Integer.parseInt("2"), ConstanteEnun.LUNES.toString());
+		lstDia.put(Integer.parseInt("3"), ConstanteEnun.MARTES.toString());
+		lstDia.put(Integer.parseInt("4"), ConstanteEnun.MIERCOLES.toString());
+		lstDia.put(Integer.parseInt("5"), ConstanteEnun.JUEVES.toString());
+		lstDia.put(Integer.parseInt("6"), ConstanteEnun.VIERNES.toString());
+		lstDia.put(Integer.parseInt("7"), ConstanteEnun.SABADO.toString());
+		return lstDia.get(numeroDia); 
+		
 	}
 
 	public ParkingDTO convertirEntityToDTO(Parking parking) {
