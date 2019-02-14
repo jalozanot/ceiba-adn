@@ -2,6 +2,9 @@ package com.parqueadero.application.mock.test;
 
 import static org.mockito.Mockito.when;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
@@ -45,7 +48,7 @@ public class ParkingBussinesMockTest {
 		Parking parkingMoto = new Parking();
 		parkingMoto.setIdParking(Long.parseLong(ConstantesVal.ID_PARKING_MOTO));
 		parkingMoto.setIdVigilante(Long.parseLong(ConstantesVal.ID_VIGILANTE));
-		parkingMoto.setFechaIngreso(new Date(1000));
+		parkingMoto.setFechaIngreso(new Date());
 		parkingMoto.setFechaSalida(new Date(100000));
 		parkingMoto.setNumPlaca(ConstantesVal.NUM_PLACA);
 		parkingMoto.setCilindrajeVehiculo(ConstantesVal.CILINDRAJE_VEHICULO);
@@ -57,7 +60,7 @@ public class ParkingBussinesMockTest {
 		Parking parkingCarro = new Parking();
 		parkingCarro.setIdParking(Long.parseLong(ConstantesVal.ID_PARKING_CARRO));
 		parkingCarro.setIdVigilante(Long.parseLong(ConstantesVal.ID_VIGILANTE));
-		parkingCarro.setFechaIngreso(new Date(1000));
+		parkingCarro.setFechaIngreso(new Date());
 		parkingCarro.setFechaSalida(new Date(100000));
 		parkingCarro.setNumPlaca(ConstantesVal.NUM_PLACA);
 		parkingCarro.setCilindrajeVehiculo(ConstantesVal.CILINDRAJE_VEHICULO);
@@ -124,5 +127,69 @@ public class ParkingBussinesMockTest {
 		Assert.assertTrue(Objects.nonNull(salidaCarro));
 		
 	}
+	
+	
+	@Test
+	public void SalidaMoto() throws ParseException  {
+		
+		Calendar calendar = Calendar.getInstance();
+		Date ingreso = calendar.getTime();
+		calendar.setTime(ingreso);
+		calendar.add(Calendar.DAY_OF_WEEK, -2);
+		Date salida = calendar.getTime();
+		
+		Parking parkingMo = new Parking();
+		parkingMo.setIdParking(Long.parseLong(ConstantesVal.ID_PARKING_MOTO));
+		parkingMo.setIdVigilante(Long.parseLong(ConstantesVal.ID_VIGILANTE));
+		parkingMo.setFechaIngreso(salida);
+		parkingMo.setFechaSalida(salida);
+		parkingMo.setNumPlaca(ConstantesVal.NUM_PLACA);
+		parkingMo.setCilindrajeVehiculo(ConstantesVal.CILINDRAJE_VEHICULO);
+		parkingMo.setTipoVehiculo(ConstantesVal.TIPO_VEHICULO_MOTO);
+		parkingMo.setPuesto(Integer.parseInt(ConstantesVal.PUESTO));
+		parkingMo.setEstado(ConstantesVal.ESTADO_INGRESO);
+		
+		
+		parkingMoto.setFechaIngresoDTO(salida);
+		parkingMoto.setFechaSalidaDTO(salida);
+		
+		when(service.saveOrUpdateParking(Mockito.anyObject())).thenReturn(parkingMo);
+		ParkingDTO salidaMoto = bussines.salidaVehiculo(parkingMoto);
+		Assert.assertTrue(Objects.nonNull(salidaMoto));
+		
+	}
+	
+	
+	@Test
+	public void SalidaCarro() throws ParseException  {
+		
+		Calendar calendar = Calendar.getInstance();
+		Date ingreso = calendar.getTime();
+		calendar.setTime(ingreso);
+		calendar.add(Calendar.DAY_OF_WEEK, -2);
+		Date salida = calendar.getTime();
+		
+		Parking parkingCa = new Parking();
+		parkingCa.setIdParking(Long.parseLong(ConstantesVal.ID_PARKING_CARRO));
+		parkingCa.setIdVigilante(Long.parseLong(ConstantesVal.ID_VIGILANTE));
+		parkingCa.setFechaIngreso(salida);
+		parkingCa.setFechaSalida(salida);
+		parkingCa.setNumPlaca(ConstantesVal.NUM_PLACA);
+		parkingCa.setCilindrajeVehiculo(ConstantesVal.CILINDRAJE_VEHICULO);
+		parkingCa.setTipoVehiculo(ConstantesVal.TIPO_VEHICULO_CARRO);
+		parkingCa.setPuesto(Integer.parseInt(ConstantesVal.PUESTO));
+		parkingCa.setEstado(ConstantesVal.ESTADO_INGRESO);
+		
+		
+		parkingCarro.setFechaIngresoDTO(salida);
+		parkingCarro.setFechaSalidaDTO(salida);
+		
+		when(service.saveOrUpdateParking(Mockito.anyObject())).thenReturn(parkingCa);
+		ParkingDTO salidaMoto = bussines.salidaVehiculo(parkingCarro);
+		Assert.assertTrue(Objects.nonNull(salidaMoto));
+		
+	}
+	
+	
 	
 }

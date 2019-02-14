@@ -54,7 +54,7 @@ public class ParkingBussines {
 		ParkingDTO answer = null;
 
 		if (!validarPlaca(registro.getNumPlacaDTO())) {
-			System.out.println("linea numero 57  ::::::: ");
+			
 			RespuestaParkingDTO respuestaParking = new RespuestaParkingDTO();
 			respuestaParking.setMensaje(Constantes.MENSAJE_PLACA);
 
@@ -219,41 +219,49 @@ public class ParkingBussines {
 		
 	}
 
-	public double validarFechaSalidaCarro(LocalDateTime fechaSalida, LocalDateTime fechaEntrada) {
-		long horas = ChronoUnit.HOURS.between(fechaSalida, fechaEntrada);
-		if (horas <= 0) {
-			horas = ChronoUnit.SECONDS.between(fechaEntrada, fechaSalida) > 0 ? 
-					1: 0;
-		}
-		if (horas > 0 && horas <= 9) {
-			long calculoHoras = 1000L * horas;
-			saldo = saldo + calculoHoras;
-			return saldo;
-		}
-		if (ChronoUnit.HOURS.between(fechaSalida, fechaEntrada) > 9) {
-			fechaSalida = fechaSalida.plusHours(24);
-			saldo += 8000;
-			return validarFechaSalidaCarro(fechaSalida, fechaEntrada);
-		}
-		return saldo;
-	}
-
-	public double validarFechaSalidaMoto(LocalDateTime fechaSalida, LocalDateTime fechaIngreso) {
-		long horas = ChronoUnit.HOURS.between(fechaSalida, fechaIngreso);
+	public double validarFechaSalidaCarro(LocalDateTime fechaSalida, LocalDateTime fechaIngreso) {
+		long horas = ChronoUnit.HOURS.between(fechaIngreso, fechaSalida);
+		
 		if (horas <= 0) {
 			horas = ChronoUnit.SECONDS.between(fechaIngreso, fechaSalida) > 0 ? 
 					1: 0;
 		}
-		if (horas > 0 && horas <= 9) {
+		
+		if (  horas > 0 && horas <= 9) {
+			long calculoHoras = 1000L * horas;
+			saldo = saldo + calculoHoras;
+			return saldo;
+		}
+		
+		if(ChronoUnit.HOURS.between(fechaIngreso, fechaSalida) > 9) {
+			fechaIngreso = fechaIngreso.plusHours(24);
+			saldo += 8000;
+			return validarFechaSalidaMoto(fechaIngreso, fechaSalida);
+		}
+		
+		return saldo;
+	}
+
+	public double validarFechaSalidaMoto(LocalDateTime fechaSalida, LocalDateTime fechaIngreso) {
+		long horas = ChronoUnit.HOURS.between(fechaIngreso, fechaSalida);
+		
+		if (horas <= 0) {
+			horas = ChronoUnit.SECONDS.between(fechaIngreso, fechaSalida) > 0 ? 
+					1: 0;
+		}
+		
+		if (  horas > 0 && horas <= 9) {
 			long calculoHoras = 500L * horas;
 			saldo = saldo + calculoHoras;
 			return saldo;
 		}
-		if (ChronoUnit.HOURS.between(fechaSalida, fechaIngreso) > 9) {
-			fechaSalida = fechaSalida.plusHours(24);
+		
+		if(ChronoUnit.HOURS.between(fechaIngreso, fechaSalida) > 9) {
+			fechaIngreso = fechaIngreso.plusHours(24);
 			saldo += 4000;
-			return validarFechaSalidaMoto(fechaSalida, fechaIngreso);
+			return validarFechaSalidaMoto(fechaIngreso, fechaSalida);
 		}
+		
 		return saldo;
 	}
 
