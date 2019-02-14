@@ -39,11 +39,6 @@ public class ParkingController {
 		return parkingBussines.getParkingId(id);
 	}
 
-	@DeleteMapping("/deleteVehiculo/{id}")
-	public void deleteParking(@PathVariable("id") Long id) {
-		parkingBussines.deleteParking(id);
-		
-	}
 
 	@PostMapping("/ingreso")
 	public ParkingDTO saveVehiculo(@RequestBody ParkingDTO registro) {
