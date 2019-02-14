@@ -142,25 +142,25 @@ public class ParkingBussinesTest {
 	}
 	
 
-	@Test
-	public void salidaVehiculo() {
-		
-		ParkingDTO parqueo = new ParkingDTO();
-		parqueo.setIdParkingDTO(Long.parseLong(ConstantesVal.ID_PARKING));
-		parqueo.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
-		parqueo.setIdVigilanteDTO(Long.parseLong(ConstantesVal.ID_VIGILANTE));
-		parqueo.setFechaIngresoDTO(new Date(10000));
-		parqueo.setFechaSalidaDTO(new Date(2000000));
-		parqueo.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
-		parqueo.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_MOTO);
-		parqueo.setPuestoDTO(Integer.parseInt(ConstantesVal.PUESTO));
-		parqueo.setEstadoDTO(ConstantesVal.ESTADO_SALIDA);
-		
-		Parking respuesta = parkingBussines.guardarSalidaVehiculo(parqueo);
-		
-		Assert.assertTrue(Objects.nonNull(respuesta));
-		
-	}
+//	@Test
+//	public void salidaVehiculo() {
+//		
+//		ParkingDTO parqueo = new ParkingDTO();
+//		parqueo.setIdParkingDTO(Long.parseLong(ConstantesVal.ID_PARKING));
+//		parqueo.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
+//		parqueo.setIdVigilanteDTO(Long.parseLong(ConstantesVal.ID_VIGILANTE));
+//		parqueo.setFechaIngresoDTO(new Date(10000));
+//		parqueo.setFechaSalidaDTO(new Date(2000000));
+//		parqueo.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
+//		parqueo.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_MOTO);
+//		parqueo.setPuestoDTO(Integer.parseInt(ConstantesVal.PUESTO));
+//		parqueo.setEstadoDTO(ConstantesVal.ESTADO_SALIDA);
+//		
+//		Parking respuesta = parkingBussines.guardarSalidaVehiculo(parqueo);
+//		
+//		Assert.assertTrue(Objects.nonNull(respuesta));
+//		
+//	}
 	
 	@Test
 	public void diaSemana() {
