@@ -83,7 +83,7 @@ public class ParkingBussinesMockTest {
 		parkingCarroDTO.setFechaSalidaDTO(new Date(100000));
 		parkingCarroDTO.setTipoVehiculoDTO(ConstantesTest.TIPO_VEHICULO_CARRO);
 		parkingCarroDTO.setCilindrajeVehiculoDTO(ConstantesTest.CILINDRAJE_VEHICULO);
-		parkingCarro = parkingMotoDTO;
+		parkingCarro = parkingCarroDTO;
 		
 	}
 	
