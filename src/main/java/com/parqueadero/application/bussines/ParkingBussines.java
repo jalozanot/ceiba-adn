@@ -38,10 +38,6 @@ public class ParkingBussines {
 		return servicioPa.getParkingById(id);
 	}
 
-	public void deleteParking(Long id) {
-		servicioPa.deleteParking(id);
-
-	}
 
 	 int countCarro = 0;
 	 int countMoto = 0;
@@ -55,7 +51,7 @@ public class ParkingBussines {
 
 		if (!validarPlaca(registro.getNumPlacaDTO())) {
 			
-			RespuestaParkingDTO respuestaParking = new RespuestaParkingDTO();
+			ParkingDTO respuestaParking = new ParkingDTO();
 			respuestaParking.setMensaje(Constantes.MENSAJE_PLACA);
 
 		} else {
@@ -84,7 +80,7 @@ public class ParkingBussines {
 
 			} else {
 				
-				RespuestaParkingDTO respuestaParking = new RespuestaParkingDTO();
+				ParkingDTO respuestaParking = new ParkingDTO();
 				respuestaParking.setMensaje(Constantes.SUPERO_CANTIDAD_CARRO);
 
 			}
@@ -99,7 +95,7 @@ public class ParkingBussines {
 
 			} else {
 
-				RespuestaParkingDTO respuestaParking = new RespuestaParkingDTO();
+				ParkingDTO respuestaParking = new ParkingDTO();
 				respuestaParking.setMensaje(Constantes.SUPERO_CANTIDAD_MOTO);
 			}
 

@@ -15,6 +15,7 @@ public class ParkingDTO {
 	private String tipoVehiculoDTO;
 	private int puestoDTO;
 	private String estadoDTO;
+	private String mensaje;
 	
 	public Long getIdParkingDTO() {
 		return idParkingDTO;
@@ -75,6 +76,12 @@ public class ParkingDTO {
 	}
 	public void setEstadoDTO(String estadoDTO) {
 		this.estadoDTO = estadoDTO;
+	}
+	public String getMensaje() {
+		return mensaje;
+	}
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
 	}
 	
 	
