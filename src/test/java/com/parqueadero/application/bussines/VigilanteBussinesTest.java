@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.parqueadero.application.constantes.ConstantesTest;
+import com.parqueadero.application.constantes.ConstantesVal;
 import com.parqueadero.application.entity.Vigilante;
 
 @RunWith(SpringRunner.class)
@@ -34,7 +34,7 @@ public class VigilanteBussinesTest {
 	@Test
 	public void obtenerByIdVigilante() {
 		
-		Vigilante answer = vigilanteBussines.getVigilanteId(Long.parseLong(ConstantesTest.ID_VIGILANTE));
+		Vigilante answer = vigilanteBussines.getVigilanteId(Long.parseLong(ConstantesVal.ID_VIGILANTE));
 		Assert.assertTrue(Objects.nonNull(answer));
 	
 	}
@@ -43,10 +43,10 @@ public class VigilanteBussinesTest {
 	public void guardarVigilante() {
 		
 		Vigilante vigilante = new Vigilante();
-		vigilante.setIdVigilante(Long.parseLong(ConstantesTest.ID_VIGILANTE));
-		vigilante.setNombre(ConstantesTest.NOMBRE_VIGILANTE);
-		vigilante.setApellido(ConstantesTest.APELLIDO_VIGILANTE);
-		vigilante.setCedula(ConstantesTest.CEDULA_VIGILANTE);
+		vigilante.setIdVigilante(Long.parseLong(ConstantesVal.ID_VIGILANTE));
+		vigilante.setNombre(ConstantesVal.NOMBRE_VIGILANTE);
+		vigilante.setApellido(ConstantesVal.APELLIDO_VIGILANTE);
+		vigilante.setCedula(ConstantesVal.CEDULA_VIGILANTE);
 		Vigilante answer = vigilanteBussines.saveVigilante(vigilante);
 		Assert.assertTrue(Objects.nonNull(answer));
 	

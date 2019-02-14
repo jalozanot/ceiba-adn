@@ -16,7 +16,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.parqueadero.application.bussines.ParkingBussines;
-import com.parqueadero.application.constantes.ConstantesTest;
+import com.parqueadero.application.constantes.ConstantesVal;
 import com.parqueadero.application.dto.ParkingDTO;
 import com.parqueadero.application.entity.Parking;
 import com.parqueadero.application.service.ParkingService;
@@ -43,27 +43,27 @@ public class ParkingBussinesMockTest {
 		
 		MockitoAnnotations.initMocks(this);
 		Parking parkingMoto = new Parking();
-		parkingMoto.setIdParking(Long.parseLong(ConstantesTest.ID_PARKING_MOTO));
-		parkingMoto.setIdVigilante(Long.parseLong(ConstantesTest.ID_VIGILANTE));
+		parkingMoto.setIdParking(Long.parseLong(ConstantesVal.ID_PARKING_MOTO));
+		parkingMoto.setIdVigilante(Long.parseLong(ConstantesVal.ID_VIGILANTE));
 		parkingMoto.setFechaIngreso(new Date(1000));
 		parkingMoto.setFechaSalida(new Date(100000));
-		parkingMoto.setNumPlaca(ConstantesTest.NUM_PLACA);
-		parkingMoto.setCilindrajeVehiculo(ConstantesTest.CILINDRAJE_VEHICULO);
-		parkingMoto.setTipoVehiculo(ConstantesTest.TIPO_VEHICULO_MOTO);
-		parkingMoto.setPuesto(Integer.parseInt(ConstantesTest.PUESTO));
-		parkingMoto.setEstado(ConstantesTest.ESTADO_INGRESO);
+		parkingMoto.setNumPlaca(ConstantesVal.NUM_PLACA);
+		parkingMoto.setCilindrajeVehiculo(ConstantesVal.CILINDRAJE_VEHICULO);
+		parkingMoto.setTipoVehiculo(ConstantesVal.TIPO_VEHICULO_MOTO);
+		parkingMoto.setPuesto(Integer.parseInt(ConstantesVal.PUESTO));
+		parkingMoto.setEstado(ConstantesVal.ESTADO_INGRESO);
 		parkingEntityMoto = parkingMoto;
 		
 		Parking parkingCarro = new Parking();
-		parkingCarro.setIdParking(Long.parseLong(ConstantesTest.ID_PARKING_CARRO));
-		parkingCarro.setIdVigilante(Long.parseLong(ConstantesTest.ID_VIGILANTE));
+		parkingCarro.setIdParking(Long.parseLong(ConstantesVal.ID_PARKING_CARRO));
+		parkingCarro.setIdVigilante(Long.parseLong(ConstantesVal.ID_VIGILANTE));
 		parkingCarro.setFechaIngreso(new Date(1000));
 		parkingCarro.setFechaSalida(new Date(100000));
-		parkingCarro.setNumPlaca(ConstantesTest.NUM_PLACA);
-		parkingCarro.setCilindrajeVehiculo(ConstantesTest.CILINDRAJE_VEHICULO);
-		parkingCarro.setTipoVehiculo(ConstantesTest.TIPO_VEHICULO_CARRO);
-		parkingCarro.setPuesto(Integer.parseInt(ConstantesTest.PUESTO));
-		parkingCarro.setEstado(ConstantesTest.ESTADO_INGRESO);
+		parkingCarro.setNumPlaca(ConstantesVal.NUM_PLACA);
+		parkingCarro.setCilindrajeVehiculo(ConstantesVal.CILINDRAJE_VEHICULO);
+		parkingCarro.setTipoVehiculo(ConstantesVal.TIPO_VEHICULO_CARRO);
+		parkingCarro.setPuesto(Integer.parseInt(ConstantesVal.PUESTO));
+		parkingCarro.setEstado(ConstantesVal.ESTADO_INGRESO);
 		parkingEntityCarro = parkingCarro;
 	}
 	
@@ -71,19 +71,19 @@ public class ParkingBussinesMockTest {
 	public void setupDTO() {
 		
 		ParkingDTO parkingMotoDTO = new ParkingDTO();
-		parkingMotoDTO.setNumPlacaDTO(ConstantesTest.NUM_PLACA);
-		parkingMotoDTO.setTipoVehiculoDTO(ConstantesTest.TIPO_VEHICULO_MOTO);
+		parkingMotoDTO.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
+		parkingMotoDTO.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_MOTO);
 		parkingMotoDTO.setFechaIngresoDTO(new Date(1000));
 		parkingMotoDTO.setFechaSalidaDTO(new Date(100000));
-		parkingMotoDTO.setCilindrajeVehiculoDTO(ConstantesTest.CILINDRAJE_VEHICULO);
+		parkingMotoDTO.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
 		parkingMoto = parkingMotoDTO;
 		
 		ParkingDTO parkingCarroDTO = new ParkingDTO();
-		parkingCarroDTO.setNumPlacaDTO(ConstantesTest.NUM_PLACA);
+		parkingCarroDTO.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
 		parkingCarroDTO.setFechaIngresoDTO(new Date(1000));
 		parkingCarroDTO.setFechaSalidaDTO(new Date(100000));
-		parkingCarroDTO.setTipoVehiculoDTO(ConstantesTest.TIPO_VEHICULO_CARRO);
-		parkingCarroDTO.setCilindrajeVehiculoDTO(ConstantesTest.CILINDRAJE_VEHICULO);
+		parkingCarroDTO.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_CARRO);
+		parkingCarroDTO.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
 		parkingCarro = parkingCarroDTO;
 		
 	}

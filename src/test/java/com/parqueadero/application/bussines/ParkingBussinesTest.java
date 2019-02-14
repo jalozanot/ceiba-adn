@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.parqueadero.application.constantes.ConstantesTest;
+import com.parqueadero.application.constantes.ConstantesVal;
 import com.parqueadero.application.dto.ParkingDTO;
 import com.parqueadero.application.entity.Parking;
 
@@ -38,9 +38,9 @@ public class ParkingBussinesTest {
 	@Test
 	public void guardarRegistroParking() {
 		ParkingDTO parqueo = new ParkingDTO();
-		parqueo.setNumPlacaDTO(ConstantesTest.NUM_PLACA);
-		parqueo.setCilindrajeVehiculoDTO(ConstantesTest.CILINDRAJE_VEHICULO);
-		parqueo.setTipoVehiculoDTO(ConstantesTest.TIPO_VEHICULO_MOTO);
+		parqueo.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
+		parqueo.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
+		parqueo.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_MOTO);
 		
 		ParkingDTO answer = parkingBussines.saveParking(parqueo);
 		
@@ -58,7 +58,7 @@ public class ParkingBussinesTest {
 	@Test
 	public void obtenerByIdParking() {
 		
-		Parking respuesta = parkingBussines.getParkingId(Long.parseLong(ConstantesTest.ID_PARKING));
+		Parking respuesta = parkingBussines.getParkingId(Long.parseLong(ConstantesVal.ID_PARKING));
 		Assert.assertTrue(Objects.nonNull(respuesta));
 	
 	}
@@ -67,13 +67,13 @@ public class ParkingBussinesTest {
 	public void validarPuestoVehiculoMoto() {
 		
 		ParkingDTO parqueo = new ParkingDTO();
-		parqueo.setIdParkingDTO(Long.parseLong(ConstantesTest.ID_PARKING));
-		parqueo.setNumPlacaDTO(ConstantesTest.NUM_PLACA);
-		parqueo.setIdVigilanteDTO(Long.parseLong(ConstantesTest.ID_VIGILANTE));
-		parqueo.setCilindrajeVehiculoDTO(ConstantesTest.CILINDRAJE_VEHICULO);
-		parqueo.setTipoVehiculoDTO(ConstantesTest.TIPO_VEHICULO_MOTO);
-		parqueo.setPuestoDTO(Integer.parseInt(ConstantesTest.PUESTO));
-		parqueo.setEstadoDTO(ConstantesTest.ESTADO_SALIDA);
+		parqueo.setIdParkingDTO(Long.parseLong(ConstantesVal.ID_PARKING));
+		parqueo.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
+		parqueo.setIdVigilanteDTO(Long.parseLong(ConstantesVal.ID_VIGILANTE));
+		parqueo.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
+		parqueo.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_MOTO);
+		parqueo.setPuestoDTO(Integer.parseInt(ConstantesVal.PUESTO));
+		parqueo.setEstadoDTO(ConstantesVal.ESTADO_SALIDA);
 		
 		ParkingDTO puesto = parkingBussines.validarPuestoVehiculo(parqueo);
 	    Assert.assertTrue(Objects.nonNull(puesto));
@@ -95,13 +95,13 @@ public class ParkingBussinesTest {
 	public void convertirDTO() {
 		
 		Parking parqueo = new Parking();
-		parqueo.setIdParking(Long.parseLong(ConstantesTest.ID_PARKING));
-		parqueo.setNumPlaca(ConstantesTest.NUM_PLACA);
-		parqueo.setIdVigilante(Long.parseLong(ConstantesTest.ID_VIGILANTE));
-		parqueo.setCilindrajeVehiculo(ConstantesTest.CILINDRAJE_VEHICULO);
-		parqueo.setTipoVehiculo(ConstantesTest.TIPO_VEHICULO_MOTO);
-		parqueo.setPuesto(Integer.parseInt(ConstantesTest.PUESTO));
-		parqueo.setEstado(ConstantesTest.ESTADO_SALIDA);
+		parqueo.setIdParking(Long.parseLong(ConstantesVal.ID_PARKING));
+		parqueo.setNumPlaca(ConstantesVal.NUM_PLACA);
+		parqueo.setIdVigilante(Long.parseLong(ConstantesVal.ID_VIGILANTE));
+		parqueo.setCilindrajeVehiculo(ConstantesVal.CILINDRAJE_VEHICULO);
+		parqueo.setTipoVehiculo(ConstantesVal.TIPO_VEHICULO_MOTO);
+		parqueo.setPuesto(Integer.parseInt(ConstantesVal.PUESTO));
+		parqueo.setEstado(ConstantesVal.ESTADO_SALIDA);
 		
 		ParkingDTO convert = parkingBussines.convertirEntityToDTO(parqueo);
 		
@@ -143,13 +143,13 @@ public class ParkingBussinesTest {
 	public void guardarParking() {
 		
 		ParkingDTO parqueo = new ParkingDTO();
-		parqueo.setIdParkingDTO(Long.parseLong(ConstantesTest.ID_PARKING));
-		parqueo.setNumPlacaDTO(ConstantesTest.NUM_PLACA);
-		parqueo.setIdVigilanteDTO(Long.parseLong(ConstantesTest.ID_VIGILANTE));
-		parqueo.setCilindrajeVehiculoDTO(ConstantesTest.CILINDRAJE_VEHICULO);
-		parqueo.setTipoVehiculoDTO(ConstantesTest.TIPO_VEHICULO_MOTO);
-		parqueo.setPuestoDTO(Integer.parseInt(ConstantesTest.PUESTO));
-		parqueo.setEstadoDTO(ConstantesTest.ESTADO_SALIDA);
+		parqueo.setIdParkingDTO(Long.parseLong(ConstantesVal.ID_PARKING));
+		parqueo.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
+		parqueo.setIdVigilanteDTO(Long.parseLong(ConstantesVal.ID_VIGILANTE));
+		parqueo.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
+		parqueo.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_MOTO);
+		parqueo.setPuestoDTO(Integer.parseInt(ConstantesVal.PUESTO));
+		parqueo.setEstadoDTO(ConstantesVal.ESTADO_SALIDA);
 		
 		Parking parkingEntity = parkingBussines.guardarParking(parqueo);
 		
@@ -171,7 +171,7 @@ public class ParkingBussinesTest {
 	@Test
 	public void validarPlaca() {
 		
-		boolean flag = parkingBussines.validarPlaca(ConstantesTest.NUM_PLACA);
+		boolean flag = parkingBussines.validarPlaca(ConstantesVal.NUM_PLACA);
 		Assert.assertTrue(flag);
 		
 	}
@@ -191,7 +191,7 @@ public class ParkingBussinesTest {
 	@Test
 	public void validarPlacaIniA() {
 		
-		boolean flag = parkingBussines.validarPlaca(ConstantesTest.NUM_PLACA_A);
+		boolean flag = parkingBussines.validarPlaca(ConstantesVal.NUM_PLACA_A);
 		Assert.assertTrue(flag);
 		
 	}
@@ -204,15 +204,15 @@ public class ParkingBussinesTest {
 	public void salidaVehiculo() {
 		
 		ParkingDTO parqueo = new ParkingDTO();
-		parqueo.setIdParkingDTO(Long.parseLong(ConstantesTest.ID_PARKING));
-		parqueo.setNumPlacaDTO(ConstantesTest.NUM_PLACA);
-		parqueo.setIdVigilanteDTO(Long.parseLong(ConstantesTest.ID_VIGILANTE));
+		parqueo.setIdParkingDTO(Long.parseLong(ConstantesVal.ID_PARKING));
+		parqueo.setNumPlacaDTO(ConstantesVal.NUM_PLACA);
+		parqueo.setIdVigilanteDTO(Long.parseLong(ConstantesVal.ID_VIGILANTE));
 		parqueo.setFechaIngresoDTO(new Date(10000));
 		parqueo.setFechaSalidaDTO(new Date(2000000));
-		parqueo.setCilindrajeVehiculoDTO(ConstantesTest.CILINDRAJE_VEHICULO);
-		parqueo.setTipoVehiculoDTO(ConstantesTest.TIPO_VEHICULO_MOTO);
-		parqueo.setPuestoDTO(Integer.parseInt(ConstantesTest.PUESTO));
-		parqueo.setEstadoDTO(ConstantesTest.ESTADO_SALIDA);
+		parqueo.setCilindrajeVehiculoDTO(ConstantesVal.CILINDRAJE_VEHICULO);
+		parqueo.setTipoVehiculoDTO(ConstantesVal.TIPO_VEHICULO_MOTO);
+		parqueo.setPuestoDTO(Integer.parseInt(ConstantesVal.PUESTO));
+		parqueo.setEstadoDTO(ConstantesVal.ESTADO_SALIDA);
 		
 		Parking respuesta = parkingBussines.guardarSalidaVehiculo(parqueo);
 		

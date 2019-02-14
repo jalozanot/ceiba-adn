@@ -175,35 +175,9 @@ public class ParkingBussines {
 		
 		
 		dia = c.get(Calendar.DAY_OF_WEEK);
+		
+		return diaSemana = (dia == 1) ? ConstanteEnun.DOMINGO.toString(): (dia == 2) ? ConstanteEnun.LUNES.toString() : (dia == 3) ? ConstanteEnun.MARTES.toString() : (dia == 4)? ConstanteEnun.MIERCOLES.toString(): (dia == 5)?ConstanteEnun.JUEVES.toString():(dia == 6)?diaSemana = ConstanteEnun.VIERNES.toString():(dia == 7)?ConstanteEnun.SABADO.toString():ConstanteEnun.DOMINGO.toString();
 
-		switch (dia) {
-		case 1:
-			diaSemana = ConstanteEnun.DOMINGO.toString();
-			break;
-		case 2:
-			diaSemana = ConstanteEnun.LUNES.toString();
-			break;
-		case 3:
-			diaSemana = ConstanteEnun.MARTES.toString();
-			break;
-		case 4:
-			diaSemana = ConstanteEnun.MIERCOLES.toString();
-			break;
-		case 5:
-			diaSemana = ConstanteEnun.JUEVES.toString();
-			break;
-		case 6:
-			diaSemana = ConstanteEnun.VIERNES.toString();
-			break;
-		case 7:
-			diaSemana = ConstanteEnun.SABADO.toString();
-			break;
-		default:
-			diaSemana = ConstanteEnun.DOMINGO.toString();
-			break;
-		}
-
-		return diaSemana;
 	}
 
 	public ParkingDTO convertirEntityToDTO(Parking parking) {
