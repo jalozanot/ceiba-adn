@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.parqueadero.application.dto.ParkingDTO;
-import com.parqueadero.application.dto.RespuestaParkingDTO;
 import com.parqueadero.application.entity.Parking;
 import com.parqueadero.application.service.ParkingService;
 import com.parqueadero.application.utils.ConstanteEnun;
