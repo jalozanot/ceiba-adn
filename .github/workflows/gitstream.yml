@@ -29,10 +29,6 @@ on:
         description: Optional resolver token for resolver service
         required: false
         default: ''
-      dry-run:
-        type: boolean
-        description: 'Debug mode (run without publishing).'
-        default: true
 
 jobs:
   gitStream:
