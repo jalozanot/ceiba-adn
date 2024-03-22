@@ -18,10 +18,6 @@ automations:
         args:
           comment: |
             This PR is considered a safe change and has been automatically approved.
-      - action: merge@v1
-        args:
-          wait_for_all_checks: true
-          squash_on_merge: true
 
 # These custom expressions are used in the safe_changes automation
 is:
