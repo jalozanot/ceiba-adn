@@ -34,10 +34,8 @@ jobs:
   gitStream:
     timeout-minutes: 5
     runs-on: ubuntu-latest
-    container: node:20
     name: gitStream workflow automation
     steps:
-      - run: node --version
       - name: Evaluate Rules
         uses: linear-b/gitstream-github-action@v1
         id: rules-engine
