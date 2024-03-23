@@ -1,7 +1,6 @@
 server:
   port: 8029
-  Run successful, no actions applicable
-
+  
 spring:
 
   datasource:
