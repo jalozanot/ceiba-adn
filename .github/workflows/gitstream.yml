@@ -9,22 +9,22 @@ on:
     inputs:
       client_payload:
         description: The Client payload
-        required: true
+        required: false
       full_repository:
         description: the repository name include the owner in `owner/repo_name` format
         required: true
       head_ref:
         description: the head sha
-        required: true
+        required: false
       base_ref:
         description: the base ref 
-        required: true
+        required: false
       installation_id:
         description: the installation id
         required: false
       resolver_url:
         description: the resolver url to pass results to
-        required: true
+        required: false
       resolver_token:
         description: Optional resolver token for resolver service
         required: false
@@ -34,7 +34,6 @@ jobs:
   gitStream:
     timeout-minutes: 5
     runs-on: ubuntu-latest
-    container: node:20
     name: gitStream workflow automation
     steps:
       - name: Evaluate Rules
@@ -48,3 +47,4 @@ jobs:
           installation_id: ${{ github.event.inputs.installation_id }}
           resolver_url: ${{ github.event.inputs.resolver_url }}
           resolver_token: ${{ github.event.inputs.resolver_token }}
+    

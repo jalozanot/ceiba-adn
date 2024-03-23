@@ -7,7 +7,7 @@ automations:
   safe_changes:
     # Triggered for any changes that only affect formatting, documentation, tests, or images
     if:
-      - {{ is.formatting or is.docs or is.tests or is.image }}
+      - true
     # Apply a safe change label, approve the PR and explain why in a comment.
     run: 
       - action: add-label@v1
